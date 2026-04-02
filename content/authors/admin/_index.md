@@ -74,7 +74,7 @@ education:
     #   text: 'Read Thesis'
     #   url: 'https://example.com'
   - area: Diplom in Machine and deep Learning
-    institution: Universidad catolica san pablo
+    institution: Universidad Católica San Pablo
     date_start: 2021-06-01
     date_end: 2021-02-01
     summary: |
