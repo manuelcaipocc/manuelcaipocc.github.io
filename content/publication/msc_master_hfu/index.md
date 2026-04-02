@@ -39,5 +39,4 @@ image:
   focal_point: ''
   preview_only: false
 
-copyright: '© 2026 Manuel Alberto Caipo Ccoa. All rights reserved.'
 ---
