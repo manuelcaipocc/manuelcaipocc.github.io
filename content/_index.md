@@ -3,6 +3,7 @@
 title: "Manuel Caipo"
 date: 2025-03-08
 type: landing
+description: "Personal website of Manuel Caipo, ML and Data Engineer focused on industrial AI, predictive maintenance, data engineering, and machine learning research."
 
 design:
   # Default section spacing
