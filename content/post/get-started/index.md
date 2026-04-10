@@ -7,6 +7,8 @@ date: 2023-10-27
 # Place an image named `featured.jpg/png` in this page's folder and customize its options here.
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
+sitemap:
+  disable: true
 
 authors:
   - admin
