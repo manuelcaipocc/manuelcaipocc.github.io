@@ -2,6 +2,9 @@
 title: Publications
 cms_exclude: true
 
+sitemap:
+  disable: true
+
 # View.
 view: citation
 
