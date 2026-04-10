@@ -3,7 +3,8 @@ title: 'Künstliche Intelligenz in der Präzisionsmesstechnik'
 
 authors:
   - admin
-
+sitemap:
+  disable: true
 author_notes:
   - 'Furtwangen University – M.Sc. Advanced Precision Engineering'
 
