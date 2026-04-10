@@ -9,6 +9,9 @@ cascade:
     params:
       show_breadcrumb: true
 
+sitemap:
+  disable: true
+
 sections:
   - block: collection
     id: teaching
