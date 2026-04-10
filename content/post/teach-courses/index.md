@@ -5,6 +5,8 @@ date: 2023-10-24
 math: true
 authors:
   - admin
+sitemap:
+  disable: true
 tags:
   - Hugo
   - Hugo Blox Builder
