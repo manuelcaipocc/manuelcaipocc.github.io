@@ -2,7 +2,7 @@
 title: 'Design of a 350 TPH Copper Concentrate Feeding Conveyor Belt with Automated Hydraulic Tensioning System and Receiving Hopper'
 
 authors:
-  - Manuel Caipo
+  - admin
 sitemap:
   disable: true
 author_notes:
