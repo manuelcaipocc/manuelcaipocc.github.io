@@ -8,6 +8,8 @@ authors:
   - Maximilian Dommermuth
   - Katharina Schmitz
 
+sitemap:
+  disable: true
 author_notes:
   - 'Preprint submitted to Discover Mechanical Engineering'
 
