@@ -2,7 +2,6 @@
 title: 'Dynamic Modeling and Control of a 5-DoF SCARA Robot using MATLAB and ROS2'
 
 authors:
-  - Manuel Caipo
   - admin
 sitemap:
   disable: true
