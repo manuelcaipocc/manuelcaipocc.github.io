@@ -5,6 +5,8 @@ type: landing
 
 design:
   spacing: '5rem'
+sitemap:
+  disable: true
 
 # Note: `username` refers to the user's folder name in `content/authors/`
 
