@@ -1,32 +1,38 @@
-{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+ {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  {{ range .Site.Pages }}
-    {{ $include := false }}
 
-    {{ if .IsHome }}
-      {{ $include = true }}
+  {{ with site.Home }}
+  {{ if not .Sitemap.Disable }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{ with .Lastmod }}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{ end }}
+  </url>
+  {{ end }}
+  {{ end }}
 
-    {{ else if and (eq .Section "publication") (eq .Kind "page") }}
-      {{ if not .Sitemap.Disable }}
-        {{ $include = true }}
-      {{ end }}
-
-    {{ else if and (eq .Kind "term") (eq .Data.Plural "authors") (eq .Slug "manuel-caipo") }}
-      {{ $include = true }}
-
-    {{ else if and (eq .Kind "page") (or (eq .Section "experience") (eq .Section "project") (eq .Section "projects")) }}
-      {{ if not .Sitemap.Disable }}
-        {{ $include = true }}
-      {{ end }}
-    {{ end }}
-
-    {{ if and $include (not .Sitemap.Disable) }}
+  {{ range .Site.RegularPages }}
+    {{ if and (eq .Section "publication") (not .Sitemap.Disable) }}
     <url>
       <loc>{{ .Permalink }}</loc>
       {{ with .Lastmod }}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{ end }}
-      {{ with .Sitemap.ChangeFreq }}<changefreq>{{ . }}</changefreq>{{ end }}
-      {{ if ge .Sitemap.Priority 0.0 }}<priority>{{ .Sitemap.Priority }}</priority>{{ end }}
+    </url>
+    {{ end }}
+
+    {{ if and (or (eq .Section "experience") (eq .Section "project") (eq .Section "projects")) (not .Sitemap.Disable) }}
+    <url>
+      <loc>{{ .Permalink }}</loc>
+      {{ with .Lastmod }}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{ end }}
     </url>
     {{ end }}
   {{ end }}
+
+  {{ range .Site.Pages }}
+    {{ if and (eq .Kind "term") (eq .Data.Plural "authors") (eq .Slug "manuel-caipo") (not .Sitemap.Disable) }}
+    <url>
+      <loc>{{ .Permalink }}</loc>
+      {{ with .Lastmod }}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{ end }}
+    </url>
+    {{ end }}
+  {{ end }}
+
 </urlset>
