@@ -2,7 +2,7 @@
 title: 'Fluid 4.0-Compliant Framework for Digital Representation and Graph-Based Neural Modeling'
 
 authors:
-  - Manuel Alberto Caipo Ccoa
+  - admin
 sitemap:
   disable: true
 date: '2026-03-16T00:00:00Z'
