@@ -3,7 +3,8 @@ title: 'Design of a 350 TPH Copper Concentrate Feeding Conveyor Belt with Automa
 
 authors:
   - Manuel Caipo
-
+sitemap:
+  disable: true
 author_notes:
   - 'National University of San Agustín, Arequipa, Peru'
 
