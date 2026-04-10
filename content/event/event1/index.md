@@ -27,6 +27,9 @@ publishDate: '2017-01-01T00:00:00Z'
 authors:
   - admin
 
+sitemap:
+  disable: true
+
 tags: []
 
 # Is this a featured talk? (true/false)
