@@ -1,9 +1,10 @@
 ---
 title: 'Explainable Edge-AI Framework for Fault Diagnosis and Remaining Useful Life Prediction in Hydraulic Systems'
 
+  
 authors:
+  - admin
   - Faras Brumand-Poor
-  - Manuel Caipo
   - Jörn Kretschmer
   - Maximilian Dommermuth
   - Katharina Schmitz
