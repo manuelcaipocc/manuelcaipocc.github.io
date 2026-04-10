@@ -9,6 +9,8 @@ design:
   # Default section spacing
   spacing: "6rem"
 
+sitemap:
+  disable: False
 sections:
   - block: hero
     demo: false # Only display this section in the Hugo Blox Builder demo site
