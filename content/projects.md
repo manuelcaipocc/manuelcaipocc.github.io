@@ -7,6 +7,8 @@ design:
   # Section spacing
   spacing: '5rem'
 
+sitemap:
+  disable: true
 # Page sections
 sections:
   - block: collection
