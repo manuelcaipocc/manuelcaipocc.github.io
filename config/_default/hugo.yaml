@@ -25,7 +25,8 @@ params:
       schema:
         enabled: true
         person_type: 'Person'
-
+      site_verification:
+        google: 'D4D9DZfsSaT7uw3Hik7fzIbPjGSGt0kQQnjSEBQ5MKo'
 
 ############################
 ## LANGUAGE
