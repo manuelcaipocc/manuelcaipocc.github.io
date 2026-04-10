@@ -6,6 +6,8 @@ type: docs
 math: false
 tags:
   - Python
+sitemap:
+  disable: true
 image:
   caption: 'Embed rich media such as videos and LaTeX math'
 ---
