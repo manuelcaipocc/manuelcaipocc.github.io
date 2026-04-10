@@ -12,6 +12,9 @@ image:
   caption: AgnathaX
   focal_point: Smart
 
+sitemap:
+  disable: true
+
 # links:
 #   - icon: twitter
 #     icon_pack: fab
