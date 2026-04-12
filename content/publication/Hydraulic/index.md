@@ -4,10 +4,6 @@ title: 'Explainable Edge-AI Framework for Fault Diagnosis and Remaining Useful L
   
 authors:
   - admin
-  - Faras Brumand-Poor
-  - Jörn Kretschmer
-  - Maximilian Dommermuth
-  - Katharina Schmitz
 
 sitemap:
   disable: true
