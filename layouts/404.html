@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=https://manuelcaipocc.github.io/">
-  <link rel="canonical" href="https://manuelcaipocc.github.io/">
-  <script>
-    window.location.replace("https://manuelcaipocc.github.io/");
-  </script>
-</head>
-<body>
-  <p>Redirecting to <a href="https://manuelcaipocc.github.io/">home page</a>...</p>
-</body>
-</html>
+{{ define "main" }}
+  <section class="container" style="padding: 4rem 1rem; text-align: center;">
+    <h1>404 - Page not found</h1>
+    <p>The page you requested does not exist or may have been moved.</p>
+    <p>
+      <a href="{{ .Site.Home.RelPermalink }}">Return to homepage</a>
+    </p>
+  </section>
+{{ end }}
