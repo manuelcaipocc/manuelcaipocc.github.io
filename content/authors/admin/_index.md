@@ -4,7 +4,7 @@ title: Manuel Caipo
 
 # Name pronunciation (optional)
 name_pronunciation: ''
-
+full_name: Manuel Alberto Caipo Ccoa
 # Full name (for SEO)
 first_name: Manuel
 last_name: Caipo
