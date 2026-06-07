@@ -114,9 +114,8 @@
           {{ $is_remote := or (strings.HasPrefix $image_path "http://") (strings.HasPrefix $image_path "https://") }}
 
           {{ if $is_remote }}
-            {{ $remote := try (resources.GetRemote $image_path) }}
-            {{ if and $remote (not $remote.Err) }}
-              {{ $image_resource = $remote.Value }}
+            {{ with resources.GetRemote $image_path }}
+              {{ $image_resource = . }}
             {{ else }}
               {{ $image_url = $image_path }}
             {{ end }}
