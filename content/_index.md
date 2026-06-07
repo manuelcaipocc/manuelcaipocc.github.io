@@ -43,6 +43,11 @@ sections:
     design:
       css_class: hero-gradient
       text_color_light: true
+      avatar:
+        size: xxl
+        shape: circle
+        process: false
+        generation_size: "1200"
         # image:
         #   filename: iot1.png
         #   filters:
