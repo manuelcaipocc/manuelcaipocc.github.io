@@ -1,5 +1,5 @@
 ---
-title: 'Explainable Edge-AI Framework for Fault Diagnosis and Remaining Useful Life Prediction in Hydraulic Systems'
+title: 'An Edge Oriented Architecture for State Based Remaining Useful Life Prediction in Hydraulic Systems'
 
   
 authors:
@@ -19,25 +19,53 @@ publication: 'Preprint submitted to Discover Mechanical Engineering'
 publication_short: 'Discover Mechanical Engineering (submitted)'
 
 abstract: >
-  Predictive maintenance solutions for hydraulic systems often fail to reach industrial adoption, not due to insufficient model accuracy, but because of fragmented data infrastructures, missing operational context, and limited physical interpretability.
+  Predictive maintenance in hydraulic systems is constrained in practice by the
+  absence of run-to-failure data, limited component-level observability, and
+  disconnected data pipelines between PLC-level operational events and
+  machine-learning-based prognostics. This paper presents an edge-oriented
+  prototype architecture that integrates these elements into a prototype-level state-based predictive maintenance workflow for hydraulic and fluid power
+  systems.
 
-  This work proposes an edge-oriented, open-source framework for condition monitoring and Remaining Useful Life (RUL) estimation that addresses the minimum architectural and data requirements for production-grade deployment. The framework is designed as an event-driven and state-based pipeline, where operational events, component behavior, and sensor data are consistently aligned.
+  The central methodological contribution is a formal state-transition Remaining
+  Useful Life (RUL) formulation, which defines RUL as the remaining time, or number
+  of hydraulic cycles, before the system transitions from nominal to PLC-supported
+  abnormal or critical operation. This definition provides an operational prognostic
+  target without requiring complete run-to-failure trajectories. Supporting this
+  formulation, an OPC~UA-based acquisition and ETL framework aligns
+  high-frequency hydraulic sensor data, multi-resolution storage, and PLC-based
+  event logs into a structured data backbone for the investigated prototype.
 
-  Using a real hydraulic system controlled by an industrial PLC, machine states are identified through unsupervised clustering and Hidden Markov Models, enabling degradation-aware state transitions without explicit fault labels. RUL is formulated as the time to transition into economically non-viable operational states rather than catastrophic failure. Prognostic models based on LSTM with attention and XGBoost are complemented by explainability analyses (SHAP, PDP, attention maps) that link model outputs to physically meaningful hydraulic variables, enabling expert validation and operational trust.
+  The framework is evaluated on a real PLC-controlled electro-hydraulic prototype
+  operated across 15 repeated sessions at 100~ms resolution. Latent operating
+  states are inferred using K-Means and Hidden Markov Models and evaluated against
+  PLC-based operational reference logs. K-Means achieved an accuracy of 0.737 and
+  a binary anomaly F1-score of 0.938, while the HMM achieved an accuracy of 0.749,
+  a macro F1-score of 0.635, and a binary anomaly F1-score of 0.933. For RUL
+  estimation, XGBoost achieved a test MAE of 3.916~min and a median prognostic
+  horizon of 34.068~min for the first abnormal transition ($R^2=0.911$), while
+  LSTM-Attention achieved the best critical RUL performance with a test MAE of
+  3.467~min, a median prognostic horizon of 39.662~min, and $R^2=0.964$. SHAP, PDP, and
+  attention-based analyses indicated that the models relied mainly on
+  hydraulically plausible variables, including cylinder velocity, pressure ratios,
+  oil flow rate, and cycle-level descriptors, supporting physical consistency
+  without claiming causal inference.
 
-  Experimental results show that the identified states and predicted RUL trajectories are consistent with logged downtime events and known physical degradation mechanisms, while explainability analyses confirm that statistically relevant features correspond to physically meaningful variables.
+  The results provide prototype-level evidence that structured event logging,
+  unsupervised state modeling, and state-transition RUL estimation can be integrated
+  into a coherent hydraulic PdM architecture under practically relevant PLC-integrated
+  constraints, including the absence of run-to-failure labels and restricted
+  component-level observability.
 
-  The proposed architecture defines the minimum architectural structure required for edge-oriented deployment, enabling scalable, interpretable, and autonomous predictive maintenance solutions with direct relevance for production availability and Overall Equipment Effectiveness (OEE).
 
 summary: >
-  Preprint on an explainable edge-AI framework for fault diagnosis and remaining useful life prediction in PLC-integrated hydraulic systems.
+  Preprint on An Edge Oriented Architecture for State Based Remaining Useful Life Prediction in Hydraulic Systems.
 
 featured: true
 
 url_pdf: 'https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/publications/Explainable_Edge_AI_Framework_for_Fault_Diagnosis_and_Remaining_Useful_Life_Springer_template.pdf'
 
 image:
-  caption: 'Explainable Edge-AI framework for hydraulic fault diagnosis and RUL prediction'
+  caption: 'An Edge Oriented Architecture for State Based Remaining Useful Life Prediction in Hydraulic Systems'
   focal_point: ''
   preview_only: false
 ---
