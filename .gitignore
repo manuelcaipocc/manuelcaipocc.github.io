@@ -1,0 +1,12 @@
+# Hugo build output and generated files
+/public/
+/resources/_gen/
+hugo_stats.json
+.hugo_build.lock
+
+# Private CV source (contains personal contact data)
+/static/uploads/resume.txt
+
+# OS / editor
+.DS_Store
+Thumbs.db

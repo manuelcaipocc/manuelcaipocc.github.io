@@ -3,7 +3,7 @@
 title: "Manuel Caipo"
 date: 2025-03-08
 type: landing
-description: "Personal website of Manuel Caipo, ML and Data Engineer focused on industrial AI, predictive maintenance, data engineering, and machine learning research."
+description: "Personal website of Manuel Caipo, Machine Learning Engineer and AI Researcher focused on agentic AI, physics-aware machine learning, and explainable fault diagnosis for cyber-physical systems."
 
 design:
   # Default section spacing
@@ -15,17 +15,19 @@ sections:
   - block: hero
     demo: false # Only display this section in the Hugo Blox Builder demo site
     content:
-      title: <br/><br/> ML & Data Engineer
-      text: AI Research • Industrial AI • Data Engineering
+      title: Physics-aware & Agentic AI for Engineering Systems
+      text: PhD Candidate at Mercedes-Benz AG & Technical University of Munich
+      primary_action:
+        text: Explore research
+        url: /#publications
+        icon: arrow-down
+      secondary_action:
+        text: Download CV
+        url: /uploads/resume.pdf
     design:
       css_class: hero-gradient
-      text_color_light: true
-      # background:
-      #   image:
-      #     filename: iot1.png
-      #     filters:
-      #       brightness: 0.5
-      #   text_color_light: true
+      spacing:
+        padding: ["8rem", 0, "3rem", 0]
   - block: resume-biography-3
     id: about
     content:
@@ -35,7 +37,7 @@ sections:
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
-        url: uploads/resume.pdf
+        url: /uploads/resume.pdf
     # design:
     #   css_class: dark
     #   background:
@@ -103,56 +105,26 @@ sections:
   #     spacing:
   #       padding: [0, 0, 0, 0]
   - block: markdown
-    id: professional_timeline
+    id: highlights
     content:
-      title: Professional Journey
+      title: Highlights
       text: |-
-        <details open>
-        <summary><strong>2024–Present | Data Scientist Werkstudent | Masterand – Bosch Rexroth (Ulm, Germany)</strong></summary>
-
-        - **Industrial ETL Pipeline:** Designed and implemented a complete ETL process to transmit CtrlX sensor data to a relational database via Solace messaging, fully containerized in Docker  
-        - **Data Processing Optimization:** Developed and optimized stored procedures for restructuring raw sensor streams into machine-learning-ready formats  
-        - **RUL Prediction & Orchestration:** Built predictive models for Remaining Useful Life (RUL) of hydraulic systems using Hidden Markov Models, clustering, and XGBoost — orchestrated via Dagster  
-
-        </details>
-
-        <details open>
-        <summary><strong>2021–2023 | Data Science – Freeport-McMoRan (Global Mining Operations)</strong></summary>
-
-        <span class="award">Presidential Award — July 2022</span>  
-        Honored with the **President’s Award** and **Innova 2022 (1st Place Digital Transformation)** for predictive wear models improving plant availability by **+1.5%**.
-
-        - **Global ML Deployment:** Azure ML pipelines for 200+ heavy assets  
-        - **Data Infrastructure Optimization:** SQL preparation time reduced from 8h → 22min  
-        - **Adaptive Learning Systems:** Continuous retraining on multivariate operational data  
-        - **Decision Intelligence:** Power BI dashboards for maintenance optimization  
-
-        </details>
-
-        <details>
-        <summary><strong>2015–2021 | Engineering Foundations (Peru)</strong></summary>
-
-        - **IMCO Servicios:** FEM and CFD simulations for mining components  
-        - **Academic Excellence:** Top 1% Mechanical Engineering (UNSA)
-
-        </details>
-
-        <details>
-        <summary><strong>Academic Milestones</strong></summary>
-
-        - **M.Sc. Computational Science and Engineering** — University of Ulm  
-        - **M.Sc. Advanced Precision Engineering** — Hochschule Furtwangen  
-        - **Postgraduate Diploma — Machine Learning & Deep Learning** — UCSP  
-        - **B.Sc. Mechanical Engineering** — UNSA  
-
-        </details>
+        <p class="section-lead">Milestones, papers and new chapters, year by year.</p>
+        <ol class="milestones">
+        <li class="milestone is-key"><span class="milestone-date">Jun 2026</span><h4>Started my Ph.D. at TUM in cooperation with Mercedes-Benz AG</h4><p>Context-aware multimodal learning and agentic LLM approaches for fault analysis in software-intensive eDrive systems, at the <a href="https://www.mos.ed.tum.de/nma/team/manuel-caipo/">Chair of Sustainable Mobile Drivetrains</a>.</p></li>
+        <li class="milestone is-key"><span class="milestone-date">2026</span><h4>Paper published in <em>Discover Mechanical Engineering</em> (Springer Nature)</h4><p><a href="https://link.springer.com/article/10.1007/s44245-026-00364-y">An edge-oriented architecture for state-based remaining useful life prediction in hydraulic systems</a>.</p></li>
+        <li class="milestone"><span class="milestone-date">Apr 2026</span><h4>M.Sc. Advanced Precision Engineering — Hochschule Furtwangen (grade 1.59)</h4><p>Master's thesis at Bosch Rexroth on an ML/AI-based condition monitoring module for hydraulic systems (Fluid 4.0).</p></li>
+        <li class="milestone"><span class="milestone-date">Oct 2025</span><h4>Exchange semester in Computational Science and Engineering — Ulm University</h4><p>Numerical optimization and high-performance computing.</p></li>
+        <li class="milestone is-key"><span class="milestone-date">2022</span><h4>Innova 2022 — Triple Award Winner at Freeport-McMoRan</h4><p>1st Place Digital Transformation, Showroom Award and President's Award for RUL-based proactive maintenance: <strong>+1.5% asset availability (≈$10M/year)</strong>.</p></li>
+        <li class="milestone"><span class="milestone-date">2019</span><h4>Top Graduate (Top 1%) — Mechanical Engineering, UNSA</h4><p>President of the Republic Scholarship (Peru) and Outstanding Bachelor's Thesis Award.</p></li>
+        </ol>
     design:
-      columns: 2
-      css_class: professional-timeline
+      columns: 1
   - block: collection
     id: publications
     content:
-      title: Featured Publications
+      title: Featured Research
+      subtitle: Physics-aware, explainable machine learning for engineering systems.
       count: 0
       filters:
         folders:
@@ -207,7 +179,9 @@ sections:
   - block: markdown
     id: contact
     content:
-      title: Contact Me
+      title: Let's Connect
+      text: |-
+        <p class="section-lead">Always happy to talk about agentic AI, physics-aware ML, fault diagnosis, or research collaborations.</p>
     design:
       # Reduce spacing
       spacing:
@@ -217,10 +191,13 @@ sections:
       buttons:
         - text: E-mail
           icon: at-symbol
-          url: mailto:manuelcaipocc@outlook.com
+          url: mailto:manuel.caipo@tum.de
         - text: Connect
           icon: brands/linkedin
           url: https://www.linkedin.com/in/manuel-caipo-89845b151/
+        - text: GitHub
+          icon: brands/github
+          url: https://github.com/manuelcaipocc
     design:
       columns: 2
 

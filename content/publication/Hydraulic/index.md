@@ -1,6 +1,5 @@
 ---
-title: 'An Edge Oriented Architecture for State Based Remaining Useful Life Prediction in Hydraulic Systems'
-
+title: 'An Edge-Oriented Architecture for State-Based Remaining Useful Life Prediction in Hydraulic Systems'
   
 authors:
   - admin
@@ -8,15 +7,16 @@ authors:
 sitemap:
   disable: true
 author_notes:
-  - 'Preprint submitted to Discover Mechanical Engineering'
+  - 'Published in Discover Mechanical Engineering (Springer Nature)'
 
 date: '2026-03-01T00:00:00Z'
 publishDate: '2026-03-01T00:00:00Z'
 
-publication_types: ['paper']
+doi: '10.1007/s44245-026-00364-y'
+publication_types: ['article-journal']
 
-publication: 'Preprint submitted to Discover Mechanical Engineering'
-publication_short: 'Discover Mechanical Engineering (submitted)'
+publication: '*Discover Mechanical Engineering* (Springer Nature)'
+publication_short: 'Discover Mech. Eng.'
 
 abstract: >
   Predictive maintenance in hydraulic systems is constrained in practice by the
@@ -58,11 +58,12 @@ abstract: >
 
 
 summary: >
-  Preprint on An Edge Oriented Architecture for State Based Remaining Useful Life Prediction in Hydraulic Systems.
-
+  Journal article (Discover Mechanical Engineering, Springer Nature) presenting an edge-oriented architecture for state-based RUL prediction in hydraulic systems using PLC event logs, OPC UA data acquisition, unsupervised state modeling, and machine-learning-based prognostics.
+  
 featured: true
 
-url_pdf: 'https://manuelcaipocc.github.io/cv-caipo-latex/cv_links/publications/Explainable_Edge_AI_Framework_for_Fault_Diagnosis_and_Remaining_Useful_Life_Springer_template.pdf'
+url_source: 'https://link.springer.com/article/10.1007/s44245-026-00364-y'
+url_pdf: 'https://link.springer.com/content/pdf/10.1007/s44245-026-00364-y.pdf'
 
 image:
   caption: 'An Edge Oriented Architecture for State Based Remaining Useful Life Prediction in Hydraulic Systems'

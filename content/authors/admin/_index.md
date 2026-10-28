@@ -20,22 +20,25 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Machine Learning Engineer
+role: Machine Learning Engineer | AI Researcher
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: University Ulm
-    url: https://www.uni-ulm.de/en/
-  - name: Hochschule Furtwangen
-    url: https://www.hs-furtwangen.de/
+  - name: Mercedes-Benz AG
+    url: https://group.mercedes-benz.com/
+  - name: Technical University of Munich
+    url: https://www.tum.de/en/
 
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
-  #- icon: at-symbol
-  #url: 'manuelcaipocc@outlook.com'
-  #label: E-mail me
+  - icon: at-symbol
+    url: mailto:manuel.caipo@tum.de
+    label: E-mail me
+  - icon: building-library
+    url: https://www.mos.ed.tum.de/nma/team/manuel-caipo/
+    label: TUM – Chair of Sustainable Mobile Drivetrains
   - icon: brands/github
     url: https://github.com/manuelcaipocc
   - icon: brands/linkedin
@@ -48,131 +51,134 @@ profiles:
     url: uploads/resume.pdf
 
 interests:
-  - Machine Learning for Engineering Systems
-  - Physics-informed Machine Learning
-  - Industrial AI and Predictive Maintenance
-  - Cyber-Physical Systems
+  - Agentic AI and LLM-based Systems
+  - Physics-aware Machine Learning
+  - Explainable Fault Diagnosis and Predictive Maintenance
+  - Cyber-Physical and Software-Intensive Systems
 
 education:
-  - area: M.Sc. Computational Science and Engineering
-    institution: University Ulm
-    date_start: 2025-10-13
+  - area: Ph.D. Candidate – Chair of Sustainable Mobile Drivetrains
+    institution: Technical University of Munich
+    date_start: 2026-06-01
     date_end: ''
     summary: |
-      [Master of science](https://www.uni-ulm.de/en/study/study-at-ulm-university/study-programmes/course-information/course/computational-science-and-engineering-master/).
-    # button:
-    #   text: 'Read Thesis'
-    #   url: 'https://example.com'
+      Topic: Context-Aware Multimodal Learning for Fault Analysis in Software-Intensive Systems (in cooperation with Mercedes-Benz AG).
 
-  - area: M.Sc. in Advanced Precision Engineering
-    institution: Hochschule Furtwangen
-    date_start: 2024-09-27
-    date_end: '2026-03-01'
+  - area: Exchange Semester – Computational Science and Engineering
+    institution: Ulm University
+    date_start: 2025-10-01
+    date_end: 2026-04-30
     summary: |
-      [Master of science](https://www.hs-furtwangen.de/studium/studiengaenge/advanced-precision-engineering-master).
-    # button:
-    #   text: 'Read Thesis'
-    #   url: 'https://example.com'
-  - area: Diplom in Machine and deep Learning
+      Focus: Numerical Optimization, High-Performance Computing.
+
+  - area: M.Sc. Advanced Precision Engineering
+    institution: Hochschule Furtwangen University
+    date_start: 2024-09-01
+    date_end: 2026-04-30
+    summary: |
+      Grade: 1.59
+
+      Thesis: Fluid 4.0-compliant framework for digital representation and graph-based neural modeling (published, Springer Nature).
+
+  - area: Postgraduate Diploma – Machine Learning & Deep Learning
     institution: Universidad Católica San Pablo
     date_start: 2021-06-01
-    date_end: 2021-02-01
+    date_end: 2022-02-28
     summary: |
-      GPA: 19.6/20.0
-      
-    Courses included:
-      - Learn regression, classification, and clustering techniques
-      - Study probabilistic models like Naive Bayes and Bayesian Networks
-      - Master neural networks, including Transformer Models and  Convolutional Neural Networks
-      - Apply machine learning to natural language processing
-      - Explore deep learning for text and image processing
+      GPA: 19.6/20.0 (Top 5%)
 
-  - area: B.Sc. in Mechanical Engineering
-    institution: Universidad Nacional de San Agustin de Arequipa
-    date_start: 2015-03-15
-    date_end: 2019-12-15
+  - area: B.Sc. Mechanical Engineering
+    institution: National University of San Agustín
+    date_start: 2015-03-01
+    date_end: 2019-12-31
     summary: |
-      GPA: 15.23/20.0
+      GPA: 15.2/20.0 (Top 1%) · Officially recognized by the German State
 
-      National Scholarship "Beca Presidente del Peru" Winner, ranking the first in the department for five consecutive years. 
-      
-    Courses included:
-    - Skilled in mechanical and structural design. 
-    - Optimization of fluid and hydraulic machinery. 
-    - Advanced knowledge in physics and calculations. 
-    - Solutions for machinery automation. 
-    - Strong ethics and communication skills. 
+      President of the Republic Scholarship (Peru) for academic excellence.
+
+      Thesis: Design of a 350 TPH copper concentrate conveyor belt with automatic hydraulic tensioning system and loading hopper.
 work:
-  - position: Data Scientist – Werkstudent
-    company_name: Bosch Rexroth
-    company_url: 'https://www.boschrexroth.com/'
-    company_logo: bosch
-    date_start: 2024-11-01
+  - position: PhD Candidate – RD/EDD eDrive Software Integration
+    company_name: Mercedes-Benz AG
+    company_url: 'https://group.mercedes-benz.com/'
+    company_logo: ''
+    date_start: 2026-06-01
     date_end: ''
     summary: |
-      • Designed and implemented an ETL pipeline in Docker for processing and storing industrial data in a data lake and relational database.  
-      • Integrated Solace as a message broker to optimize industrial data flow.  
-      • Developed a monitoring system for hydraulic systems to detect anomalies and analyze operating cycles.
+      Sindelfingen, Germany · Doctoral research in cooperation with TUM's Chair of Sustainable Mobile Drivetrains.
 
-  - position: Junior Data Science Analyst 2
-    company_name: Freeport-McMoRan – Cerro Verde
+      • Context-aware multimodal learning for fault analysis in software-intensive eDrive systems.  
+      • Design of agentic LLM approaches that orchestrate specialized ML fault classifiers across heterogeneous data sources (signals, logs, software and test artifacts).  
+      • Explainable and traceable diagnostics, distilling validated expert knowledge into verifiable diagnostic decisions to improve engineering processes.
+
+  - position: Master's Thesis – DC-SSD3
+    company_name: Bosch Rexroth AG
+    company_url: 'https://www.boschrexroth.com/'
+    company_logo: ''
+    date_start: 2024-11-01
+    date_end: 2026-03-31
+    summary: |
+      Ulm, Germany
+
+      • Development of an ML/AI-based condition monitoring module for CytroConnect, combining physical models, hydraulic domain knowledge, and data compliant with the Fluid 4.0 standard.
+
+  - position: Data Scientist Working Student – DC-SSD3
+    company_name: Bosch Rexroth AG
+    company_url: 'https://www.boschrexroth.com/'
+    company_logo: ''
+    date_start: 2024-11-01
+    date_end: 2026-03-31
+    summary: |
+      Ulm, Germany
+
+      • Built scalable ETL pipelines for high-frequency industrial time-series data (SQL/NoSQL) and integrated message brokers (Solace/MQTT).  
+      • Developed and deployed ML/DL-based predictive models for anomaly detection and RUL prediction in hydraulic systems.  
+      • Applied explainable AI methods to increase transparency, robustness, and acceptance of data-driven models.
+
+  - position: Junior Data Scientist (1 → 2) – Data Analytics
+    company_name: Freeport-McMoRan
     company_url: 'https://www.fcx.com/'
-    company_logo: freeport
+    company_logo: ''
     date_start: 2021-04-01
     date_end: 2023-07-31
     summary: |
-      • Scaled predictive wear models across global mining sites using Azure ML Jobs for automated predictions.  
-      • Optimized data preprocessing using SQL stored procedures for efficient ML training.  
-      • Deployed retraining automation processes to continuously update models with historical machine data.
+      Phoenix, U.S.A.
 
-  - position: Junior Data Science Analyst 1
-    company_name: Freeport-McMoRan – Cerro Verde
+      • Developed and deployed ML/DL models (LSTM, CNN, XGBoost) in Azure ML for anomaly detection, wear and RUL prediction of critical assets (FLSmidth primary crushers, Weir Minerals cyclone pumps), including SHAP/PDP explainability, continuous retraining and optimized SQL stored procedures for accelerated training data preparation.  
+      • RUL-based proactive maintenance planning: +1.5% asset availability (≈$10M/year savings).  
+      • Awarded Innova 2022, Showroom Award and President's Award.
+
+  - position: Trainee → Junior Data Analyst – Maintenance Reliability
+    company_name: Freeport-McMoRan
     company_url: 'https://www.fcx.com/'
-    company_logo: freeport
-    date_start: 2020-07-01
-    date_end: 2021-03-31
+    company_logo: ''
+    date_start: 2021-04-01
+    date_end: 2023-07-31
     summary: |
-      • Deployed ML models for daily wear prediction of primary crushers and cyclone pumps using Azure ML.  
-      • Automated reporting systems to compare current machine states with historical performance data.
+      • Time-series analysis (ARIMA), RCA and automated KPI reporting (SQL, Dagster, Power BI) to shift maintenance from fixed intervals to condition-based strategies in SAP.  
+      • Long-term performance and failure analysis of the concentrator plant: primary and secondary crushers, HPGR, ball mills, conveyor belts and cyclone pumps.
 
-  - position: Junior Data Analyst 1 – Reliability Engineering
-    company_name: Freeport-McMoRan – Cerro Verde
-    company_url: 'https://www.fcx.com/'
-    company_logo: freeport
-    date_start: 2020-01-01
-    date_end: 2020-06-30
-    summary: |
-      • Developed machine anomaly strategies based on historical failure analysis.  
-      • Created Power BI dashboards and reports for monitoring and decision-making.  
-      • Optimized SQL queries for faster data processing in maintenance analytics.
-
-  - position: Trainee Data Analyst – Reliability Engineering
-    company_name: Freeport-McMoRan – Cerro Verde
-    company_url: 'https://www.fcx.com/'
-    company_logo: freeport
-    date_start: 2019-07-01
-    date_end: 2019-12-31
-    summary: |
-      • Performed long-term analysis of equipment availability and operational patterns.  
-      • Focused on primary crushers, conveyors, cyclone pumps, ball mills, and HPGR systems.
-
-  - position: Junior Engineer – Technical and Development
-    company_name: IMCO Servicios S.A.C
+  - position: Junior Engineer – Engineering and Development
+    company_name: IMCO Servicios S.A.C.
     company_url: 'https://www.linkedin.com/company/imco-servicios-s-a-c/'
-    company_logo: imco
+    company_logo: ''
     date_start: 2020-08-01
     date_end: 2021-03-31
     summary: |
-      • Created structural calculation reports using simulation software like SAP2000, Inventor, Ansys Structural - Fluent and AutoCAD 3D.
+      Arequipa, Peru
 
-  - position: Intern – Reliability Engineering
-    company_name: Freeport-McMoRan – Cerro Verde
+      • Static and dynamic structural analyses with topology optimization in a BIM-oriented methodology: architectural modeling (Tekla), FEM-based structural design (SAP2000, IdeaStatica, Inventor, Ansys Structural), and final plan review in AutoCAD 3D.
+
+  - position: Intern – Maintenance Reliability
+    company_name: Freeport-McMoRan Cerro Verde
     company_url: 'https://www.fcx.com/'
-    company_logo: freeport
+    company_logo: ''
     date_start: 2020-01-01
     date_end: 2020-06-30
     summary: |
-      • Optimized production processes using multiphysics CFD simulations with tools such as Ansys Structural, Fluent, Tekla, and Ametank.
+      Arequipa, Peru
+
+      • Multiphysics CFD simulations (Ansys Fluent) to analyse wear mechanisms and evaluate protective coatings for service-life optimization.
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -253,9 +259,9 @@ work:
 
 <span class="keyword-icon about-badge">About Me</span>
 
-Machine Learning Engineer with a background in Mechanical Engineering, working at the intersection of **artificial intelligence, data engineering, and complex engineering systems**.
+Machine Learning Engineer combining a mechanical engineering foundation with graduate training in numerical methods and machine learning theory, focused on **physics-aware and reliable AI for complex cyber-physical systems**.
 
-I develop machine learning systems and data infrastructures for **industrial cyber-physical environments**, combining physical modeling, industrial domain knowledge, and scalable data pipelines to build reliable and interpretable models for real-world engineering applications.
+I interpret sensor behavior and physical degradation mechanisms and translate them into physically consistent models for **anomaly detection and remaining useful life prediction**, deployed end-to-end on high-frequency time-series data with demonstrated industrial impact. My current research extends this foundation toward **agentic AI**: LLM-based agents that orchestrate specialized ML models across signals, logs, and engineering artifacts, together with knowledge distillation methods that turn historical cases and validated expert decisions into reusable and verifiable reasoning.
 
 </div>
 
@@ -267,9 +273,11 @@ I develop machine learning systems and data infrastructures for **industrial cyb
 
 ### <span class="keyword-icon">Industry</span>
 
-During my work in the mining industry at [Freeport-McMoRan](https://www.fcx.com/), following a highly selective recruitment process (100 selected from over 16,000 applicants), I developed machine learning systems for predictive maintenance of large-scale equipment, improving asset availability and enabling data-driven operational decision-making.
+Currently at [Mercedes-Benz AG](https://group.mercedes-benz.com/) (RD/EDD eDrive Software Integration), I work on **explainable, traceable fault diagnostics** for software-intensive eDrive systems.
 
-Currently at [Bosch Rexroth](https://www.boschrexroth.com/de/de/), I work on AI-based condition monitoring for hydraulic systems, designing industrial **data pipelines and real-time telemetry architectures** that integrate sensor streams, messaging systems, and machine learning models for intelligent monitoring and decision support.
+At [Bosch Rexroth](https://www.boschrexroth.com/), I developed an ML/AI-based condition monitoring module for hydraulic systems, building **scalable ETL pipelines** for high-frequency industrial data (Solace/MQTT) and deploying anomaly detection and RUL models with explainable AI.
+
+In the mining industry at [Freeport-McMoRan](https://www.fcx.com/), following a highly selective recruitment process (100 selected from over 16,000 applicants), I deployed ML/DL models in Azure ML for wear and RUL prediction of critical assets, achieving **+1.5% asset availability (≈$10M/year savings)**.
 
 </div>
 
@@ -277,13 +285,12 @@ Currently at [Bosch Rexroth](https://www.boschrexroth.com/de/de/), I work on AI-
 
 ### <span class="keyword-icon">Research</span>
 
-My research focuses on **structured machine learning for engineered systems**, including:
+As a Ph.D. candidate at the Technical University of Munich ([Chair of Sustainable Mobile Drivetrains](https://www.mos.ed.tum.de/nma/team/manuel-caipo/)), my research focuses on **context-aware multimodal learning for fault analysis in software-intensive systems**, including:
 
-- graph-based representations of industrial systems
-- physics-aware learning methods
-- machine learning models that incorporate system architecture and physical constraints
-
-More broadly, I am interested in how **machine learning and data infrastructures can augment engineering design, operation, and maintenance**, enabling intelligent systems that reason about complex machines and improve their performance over time.
+- agentic LLM approaches orchestrating specialized ML fault classifiers
+- fusion of heterogeneous data: signals, logs, software and test artifacts
+- knowledge distillation of validated expert decisions into verifiable reasoning
+- physics-aware and graph-based learning for cyber-physical systems
 
 </div>
 
@@ -295,9 +302,7 @@ More broadly, I am interested in how **machine learning and data infrastructures
 
 ### <span class="keyword-icon">Vision</span>
 
-My long-term goal is to pursue a Ph.D. in Artificial Intelligence and Machine Learning, with a focus on computational methods for the analysis, modeling, and design of complex engineering systems.
-
-My research interests lie in learning-based approaches that integrate machine learning with structured representations of engineering systems and physical knowledge. I am especially interested in developing intelligent computational tools that support the analysis, design, and operation of advanced engineered systems, enabling more systematic and data-informed engineering processes. 
+Explainable and reliable AI that accelerates engineering processes, reduces manual analysis effort, and keeps every decision **traceable to its physical and data evidence**.
 
 </div>
 
@@ -305,11 +310,12 @@ My research interests lie in learning-based approaches that integrate machine le
 
 ### Research Keywords
 
-<span class="keyword">AI for Engineering Design</span>
-<span class="keyword">Intelligent Diagnosis</span>
-<span class="keyword">Physics-informed ML</span>
-<span class="keyword">Graph Learning for Cyber-Physical Systems</span>
-<span class="keyword">Industrial AI</span>
+<span class="keyword">Agentic AI</span>
+<span class="keyword">LLM-based Diagnostics</span>
+<span class="keyword">Multimodal Learning</span>
+<span class="keyword">Knowledge Distillation</span>
+<span class="keyword">Physics-aware ML</span>
+<span class="keyword">Explainable AI</span>
 <span class="keyword">Predictive Maintenance</span>
 
 ---
@@ -317,6 +323,21 @@ My research interests lie in learning-based approaches that integrate machine le
 <div class="about-card">
 
 ### <span class="keyword-icon">Focus Areas</span>
+
+<details>
+<summary><strong>Agentic AI and LLM Systems</strong></summary>
+
+**Technologies**
+
+- LLM-based agents, multi-agent orchestration, tool calling
+- RAG, prompt engineering, LLM evaluation
+- Knowledge distillation
+- LangChain, LangGraph, Hugging Face
+
+</details>
+
+LLM-based agents that orchestrate specialized ML models across signals, logs, and engineering artifacts for explainable and traceable fault analysis.
+
 
 <details>
 <summary><strong>Machine Learning for Engineering Systems</strong></summary>
