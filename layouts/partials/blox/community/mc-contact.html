@@ -1,0 +1,14 @@
+{{/* Contact: centered call to action with pill buttons. Data: block content (title, accent, text, buttons[text,url,icon]). */}}
+{{ $block := .wcBlock }}
+<div class="mc-container mc-contact">
+  <h2 class="mc-title mc-contact-title">{{ $block.content.title | default "Let's" }} <span class="mc-gradient-text">{{ $block.content.accent | default "connect" }}</span><span class="mc-dot">.</span></h2>
+  {{ with $block.content.text }}<p class="mc-lead">{{ . | markdownify }}</p>{{ end }}
+  <div class="mc-actions mc-actions-center">
+    {{ range $i, $b := $block.content.buttons }}
+      {{ $ext := in (slice "http" "https") (urls.Parse $b.url).Scheme }}
+      <a class="mc-btn {{ if eq $i 0 }}mc-btn-primary{{ else }}mc-btn-outline{{ end }}" href="{{ $b.url | safeURL }}" {{ if $ext }}target="_blank" rel="noopener"{{ end }}>
+        {{ with $b.icon }}{{ partial "functions/get_icon" (dict "name" . "attributes" "style=\"height:1em\"") }}{{ end }} {{ $b.text }}
+      </a>
+    {{ end }}
+  </div>
+</div>

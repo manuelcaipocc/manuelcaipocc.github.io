@@ -48,7 +48,51 @@ profiles:
   - icon: academicons/google-scholar
     url: https://scholar.google.com/citations?user=yvkSMx8AAAAJ&hl=es&oi=ao
   - icon: academicons/cv
-    url: uploads/resume.pdf
+    url: /uploads/resume.pdf
+    label: Download CV
+
+# Home intro block (layouts/partials/blox/community/mc-intro.html)
+intro:
+  greeting: Hello, I'm
+  highlight: Manuel
+  lead: |
+    I am a PhD candidate at the **Technical University of Munich**, Chair of Sustainable Mobile Drivetrains, working in cooperation with **Mercedes-Benz AG** on explainable fault analysis for software-intensive eDrive systems.
+  cards:
+    - label: Research
+      text: |
+        Context-aware multimodal learning and **agentic LLM** approaches that orchestrate specialized ML models across signals, logs and engineering artifacts, distilling validated expert knowledge into **verifiable, traceable** diagnostic decisions.
+    - label: Previously
+      text: |
+        Condition monitoring and RUL prediction for hydraulic systems at **Bosch Rexroth**, and ML/DL predictive maintenance at **Freeport-McMoRan**, where RUL-based planning achieved **+1.5% asset availability (≈$10M/year)**.
+  keywords:
+    - Agentic AI
+    - Physics-aware ML
+    - Fault Diagnosis
+    - Predictive Maintenance
+    - Explainable AI
+
+# Interests block (layouts/partials/blox/community/mc-interests.html)
+focus_areas:
+  - title: Agentic AI & LLM Systems
+    icon: sparkles
+    text: LLM-based agents that orchestrate specialized ML models across signals, logs and engineering artifacts for explainable fault analysis.
+    tags: [LLM agents, RAG, LangGraph, Knowledge distillation]
+  - title: Physics-aware Machine Learning
+    icon: cube-transparent
+    text: Learning approaches that incorporate system structure, causal relations and physical constraints into ML models.
+    tags: [Graph neural networks, PINNs, Causal modeling]
+  - title: Industrial AI & Predictive Maintenance
+    icon: wrench-screwdriver
+    text: Anomaly detection, degradation modeling and remaining useful life prediction from high-frequency sensor data.
+    tags: [LSTM / CNN, XGBoost, SHAP, RUL]
+  - title: Scalable Data & ML Systems
+    icon: circle-stack
+    text: Data pipelines, telemetry systems and deployable ML architectures for cyber-physical systems.
+    tags: [Dagster, Kafka / MQTT, Azure ML, Docker]
+  - title: Numerical Methods
+    icon: variable
+    text: Numerical optimization, high-performance computing and numerical modeling as the foundation of reliable learning systems.
+    tags: [Optimization, HPC, FEM / CFD]
 
 interests:
   - Agentic AI and LLM-based Systems
@@ -59,6 +103,8 @@ interests:
 education:
   - area: Ph.D. Candidate – Chair of Sustainable Mobile Drivetrains
     institution: Technical University of Munich
+    logo: companies/TUM_logo_en.svg
+    description: Context-aware multimodal learning for fault analysis in software-intensive systems.
     date_start: 2026-06-01
     date_end: ''
     summary: |
@@ -66,6 +112,8 @@ education:
 
   - area: Exchange Semester – Computational Science and Engineering
     institution: Ulm University
+    logo: companies/Universität_Ulm_logo.svg
+    description: Numerical optimization and high-performance computing.
     date_start: 2025-10-01
     date_end: 2026-04-30
     summary: |
@@ -73,6 +121,8 @@ education:
 
   - area: M.Sc. Advanced Precision Engineering
     institution: Hochschule Furtwangen University
+    logo: companies/HFU_logo.svg
+    description: Grade 1.59 · Thesis on a Fluid 4.0-compliant framework and graph-based neural modeling.
     date_start: 2024-09-01
     date_end: 2026-04-30
     summary: |
@@ -82,6 +132,8 @@ education:
 
   - area: Postgraduate Diploma – Machine Learning & Deep Learning
     institution: Universidad Católica San Pablo
+    logo: companies/ucsp_logo.png
+    description: 19.6/20.0 · Top 5%.
     date_start: 2021-06-01
     date_end: 2022-02-28
     summary: |
@@ -89,6 +141,9 @@ education:
 
   - area: B.Sc. Mechanical Engineering
     institution: National University of San Agustín
+    logo: companies/UNSA_escudo_negro.svg
+    logo_dark: companies/UNSA_escudo_blanco.svg
+    description: Top 1% · President of the Republic Scholarship · Recognized by the German State.
     date_start: 2015-03-01
     date_end: 2019-12-31
     summary: |
@@ -102,6 +157,8 @@ work:
     company_name: Mercedes-Benz AG
     company_url: 'https://group.mercedes-benz.com/'
     company_logo: ''
+    logo: companies/Mercedes-Benz_Logo_2010.svg
+    description: Agentic LLM approaches for explainable fault analysis in software-intensive eDrive systems, with TUM.
     date_start: 2026-06-01
     date_end: ''
     summary: |
@@ -115,6 +172,8 @@ work:
     company_name: Bosch Rexroth AG
     company_url: 'https://www.boschrexroth.com/'
     company_logo: ''
+    logo: companies/bosch_rexroth_logo.svg
+    description: ML/AI-based condition monitoring module for CytroConnect (Fluid 4.0).
     date_start: 2024-11-01
     date_end: 2026-03-31
     summary: |
@@ -126,6 +185,8 @@ work:
     company_name: Bosch Rexroth AG
     company_url: 'https://www.boschrexroth.com/'
     company_logo: ''
+    logo: companies/bosch_rexroth_logo.svg
+    description: ETL pipelines for high-frequency hydraulic data; anomaly detection and RUL models with explainable AI.
     date_start: 2024-11-01
     date_end: 2026-03-31
     summary: |
@@ -136,9 +197,11 @@ work:
       • Applied explainable AI methods to increase transparency, robustness, and acceptance of data-driven models.
 
   - position: Junior Data Scientist (1 → 2) – Data Analytics
-    company_name: Freeport-McMoRan
+    company_name: Freeport-McMoRan Cerro Verde
     company_url: 'https://www.fcx.com/'
     company_logo: ''
+    logo: companies/Logo_Freeport_McMoRan.svg
+    description: ML/DL models in Azure ML for wear and RUL prediction of critical mining assets · Innova 2022 Triple Award.
     date_start: 2021-04-01
     date_end: 2023-07-31
     summary: |
@@ -149,30 +212,23 @@ work:
       • Awarded Innova 2022, Showroom Award and President's Award.
 
   - position: Trainee → Junior Data Analyst – Maintenance Reliability
-    company_name: Freeport-McMoRan
+    company_name: Freeport-McMoRan Cerro Verde
     company_url: 'https://www.fcx.com/'
     company_logo: ''
+    logo: companies/Logo_Freeport_McMoRan.svg
+    description: Time-series analysis, RCA and KPI reporting toward condition-based maintenance.
     date_start: 2021-04-01
     date_end: 2023-07-31
     summary: |
       • Time-series analysis (ARIMA), RCA and automated KPI reporting (SQL, Dagster, Power BI) to shift maintenance from fixed intervals to condition-based strategies in SAP.  
       • Long-term performance and failure analysis of the concentrator plant: primary and secondary crushers, HPGR, ball mills, conveyor belts and cyclone pumps.
 
-  - position: Junior Engineer – Engineering and Development
-    company_name: IMCO Servicios S.A.C.
-    company_url: 'https://www.linkedin.com/company/imco-servicios-s-a-c/'
-    company_logo: ''
-    date_start: 2020-08-01
-    date_end: 2021-03-31
-    summary: |
-      Arequipa, Peru
-
-      • Static and dynamic structural analyses with topology optimization in a BIM-oriented methodology: architectural modeling (Tekla), FEM-based structural design (SAP2000, IdeaStatica, Inventor, Ansys Structural), and final plan review in AutoCAD 3D.
-
   - position: Intern – Maintenance Reliability
     company_name: Freeport-McMoRan Cerro Verde
     company_url: 'https://www.fcx.com/'
     company_logo: ''
+    logo: companies/Logo_Freeport_McMoRan.svg
+    description: Multiphysics CFD simulations of wear mechanisms and protective coatings.
     date_start: 2020-01-01
     date_end: 2020-06-30
     summary: |
@@ -180,47 +236,56 @@ work:
 
       • Multiphysics CFD simulations (Ansys Fluent) to analyse wear mechanisms and evaluate protective coatings for service-life optimization.
 
-# Skills
-# Add your own SVG icons to `assets/media/icons/`
-# skills:
-#   - name: Technical Skills
-#     items:
-#       - name: Python
-#         description: ''
-#         percent: 80
-#         icon: code-bracket
-#       - name: Data Science
-#         description: ''
-#         percent: 100
-#         icon: chart-bar
-#       - name: SQL
-#         description: ''
-#         percent: 40
-#         icon: circle-stack
-#   - name: Hobbies
-#     color: '#eeac02'
-#     color_border: '#f0bf23'
-#     items:
-#       - name: Hiking
-#         description: ''
-#         percent: 60
-#         icon: person-simple-walk
-#       - name: Cats
-#         description: ''
-#         percent: 100
-#         icon: cat
-#       - name: Photography
-#         description: ''
-#         percent: 80
-#         icon: camera
+skills:
+  - name: Technical Skills
+    items:
+      - name: Programming & Scientific Computing
+        description: 'Python (NumPy, Pandas, SciPy, scikit-learn, PyTorch), SQL, C/C++, MATLAB; numerical modeling'
+        icon: code-bracket
+      - name: Machine Learning & AI Systems
+        description: 'Predictive maintenance & RUL; LSTM (Attention), CNN, XGBoost; anomaly detection; SHAP, PDP'
+        icon: chart-bar
+      - name: Agentic AI & LLM Systems
+        description: 'LLM agents, multi-agent orchestration, tool calling; RAG, LLM evaluation; knowledge distillation; LangChain, LangGraph'
+        icon: sparkles
+      - name: Data Engineering & ETL
+        description: 'PostgreSQL, Snowflake, InfluxDB; Dagster, Apache Airflow; batch and streaming pipelines'
+        icon: circle-stack
+      - name: Cloud & MLOps
+        description: 'Azure ML, Databricks; Kafka, MQTT; Git, Docker, CI/CD; containerized inference'
+        icon: cloud
+      - name: Industrial & Physical Systems
+        description: 'OPC UA, Siemens TIA Portal (PLC), Bosch Rexroth CtrlX Core; FEM (Ansys), CFD'
+        icon: cog-6-tooth
 
-# languages:
-#   - name: English
-#     percent: 100
-#   - name: Chinese
-#     percent: 75
-#   - name: Portuguese
-#     percent: 25
+languages:
+  - name: Spanish
+    percent: 100
+  - name: German (C1)
+    percent: 85
+  - name: English (C1)
+    percent: 85
+
+awards:
+  - title: Innova 2022 – Triple Award Winner
+    awarder: Freeport-McMoRan
+    date: '2022-07-01'
+    summary: |
+      1st Place Digital Transformation, Showroom & President's Award for Machine & Deep Learning Life Data Analysis (+1.5% asset availability, ≈$10M USD/year).
+  - title: Outstanding Bachelor's Thesis Award – Engineering Sciences
+    awarder: National University of San Agustín
+    date: '2021-01-01'
+  - title: Top Graduate (Top 1%) – Mechanical Engineering
+    awarder: National University of San Agustín
+    date: '2019-12-01'
+  - title: Research Grant – SERESSA 2019
+    awarder: 15th International School on Radiation Effects, Spain
+    date: '2019-06-01'
+  - title: President of the Republic Scholarship
+    awarder: Government of Peru
+    date: '2017-03-01'
+    summary: |
+      Full scholarship awarded for academic excellence (Top 1%).
 
 # Awards.
 #   Add/remove as many awards below as you like.

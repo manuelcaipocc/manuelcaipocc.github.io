@@ -1,0 +1,14 @@
+{{/* Logo for a work/education entry: dict "logo" "logo_dark" (paths under assets/media; dark variant optional) "name" */}}
+{{ $img := "" }}
+{{ $dark := "" }}
+{{ with .logo }}{{ $img = resources.Get (path.Join "media" .) }}{{ end }}
+{{ with .logo_dark }}{{ $dark = resources.Get (path.Join "media" .) }}{{ end }}
+<div class="mc-logo{{ if $dark }} has-dark{{ end }}">
+  {{ if $img }}
+    {{ partial "mc/logo-img" (dict "img" $img "name" .name "class" (cond (not $dark) "" "mc-logo-light")) }}
+    {{ with $dark }}{{ partial "mc/logo-img" (dict "img" . "name" $.name "class" "mc-logo-dark") }}{{ end }}
+  {{ else }}
+    {{ $words := split (replaceRE `[^A-Za-zÀ-ÿ\s-]` "" .name | replaceRE `[\s-]+` " ") " " }}
+    <span>{{ range first 2 $words }}{{ substr . 0 1 }}{{ end }}</span>
+  {{ end }}
+</div>

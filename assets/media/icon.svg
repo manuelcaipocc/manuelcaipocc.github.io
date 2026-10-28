@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<defs>
+ <linearGradient id="m" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#6BFBE9"/><stop offset="0.45" stop-color="#29D6E9"/><stop offset="1" stop-color="#257BEC"/></linearGradient>
+ <linearGradient id="c" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#2DE8E3"/><stop offset="0.52" stop-color="#28B8E7"/><stop offset="1" stop-color="#3265E8"/></linearGradient>
+ <linearGradient id="iter" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#65FFEE"/><stop offset="1" stop-color="#2C83FF"/></linearGradient>
+</defs>
+<!-- no thin external frame: ideal for tabs at 16px -->
+<rect width="512" height="512" rx="88" fill="#050B12"/>
+<!-- silhouette of original M connecting to upper arc of C -->
+<path d="M 119 358 L 119 168 L 235 309 C 271 252, 303 205, 363 194" fill="none" stroke="url(#m)" stroke-width="30" stroke-linejoin="miter" stroke-linecap="butt"/>
+<!-- C: smooth, uncluttered open mathematical loop -->
+<path d="M 413 222 C 371 187, 321 200, 289 252 C 254 309, 296 379, 360 377 C 391 376, 414 358, 426 337" fill="none" stroke="url(#c)" stroke-width="29" stroke-linecap="butt"/>
+<!-- stream of converging function iterates from iteration k to k+1 -->
+<path d="M 300 110 C 303 157, 321 180, 364 194" stroke="url(#iter)" stroke-width="20" fill="none" stroke-linecap="butt"/>
+<path d="M 296.00 130.00 C 307.25 160.75, 336.00 181.00, 364 194" fill="none" stroke="#63FFF0" opacity="0.20" stroke-width="4.8" stroke-linecap="round"/><path d="M 300.18 120.50 C 308.68 162.37, 336.76 181.76, 364 194" fill="none" stroke="#4BE8E9" opacity="0.32" stroke-width="4.1" stroke-linecap="round"/><path d="M 302.77 114.61 C 309.56 163.37, 337.23 182.23, 364 194" fill="none" stroke="#32BEDF" opacity="0.44" stroke-width="3.5" stroke-linecap="round"/><path d="M 304.38 110.96 C 310.11 163.99, 337.52 182.52, 364 194" fill="none" stroke="#2896EA" opacity="0.56" stroke-width="2.8" stroke-linecap="round"/>
+<!-- iteration samples, small and restrained -->
+<circle cx="315" cy="158" r="4.4" fill="#6DFFF1" opacity=".78"/>
+<circle cx="337" cy="184" r="3.5" fill="#39DDEB" opacity=".95"/>
+</svg>

@@ -1,0 +1,11 @@
+{{/* Author list with the site owner in bold: dict "authors" */}}
+{{ $out := slice }}
+{{ range .authors }}
+  {{ $p := site.GetPage (printf "/authors/%s" (urlize .)) }}
+  {{ if and $p $p.Params.superuser }}
+    {{ $out = $out | append (printf "<strong>%s</strong>" $p.Title) }}
+  {{ else }}
+    {{ $out = $out | append (htmlEscape .) }}
+  {{ end }}
+{{ end }}
+{{ delimit $out ", " | safeHTML }}

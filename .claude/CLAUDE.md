@@ -54,9 +54,18 @@ layouts/
     custom.html          # meta google-site-verification
     manuel-schema.html   # JSON-LD Person/ProfilePage (sameAs: LinkedIn, ORCID, ...)
     github-button.html   # GitHub buttons + GoatCounter
-  _partials/hbx/blocks/resume-biography-3/block.html   # ver §5 (posible override muerto)
+  partials/hooks/body-end/mc-scripts.html   # carga assets/js/mc.js (tabs de años, carrusel, filtros de publicaciones)
+  partials/blox/community/mc-*.html         # BLOQUES PROPIOS de la home: mc-intro, mc-highlights, mc-research,
+                                            #   mc-experience, mc-interests (+ Lab), mc-skills (+ awards), mc-contact
+  partials/mc/*.html                        # helpers: heading, logo, authors, pub-links, dates
 
-assets/css/custom.css    # gradiente de fondo animado, .keyword, .wg-about, .focus-area, dark mode
+assets/css/custom.css    # fondo animado propio + design system "mc-" (variables claro/oscuro, cards, pills)
+assets/media/companies/  # logos de empresas/universidades (campo `logo:` en work/education de authors/admin)
+# Datos de la home: content/_index.md (orden de bloques + items de Highlights) y content/authors/admin (intro, focus_areas, work, education, skills, awards)
+# Lab: el bloque mc-interests muestra "Open the simulator" cuando existe static/lab/index.html
+
+# Local: Hugo extended 0.136.5 portable en %LOCALAPPDATA%\hugo-0.136.5 + Go (winget). `hugo server -D`
+# El CSS de Tailwind del tema es precompilado (dist/wc.min.css): utilidades nuevas en templates pueden no existir -> usar custom.css.
 static/
   uploads/               # PDFs (CV)
   cv-mcaipocc/index.html # CV en HTML standalone
@@ -113,7 +122,7 @@ resources/_gen/, hugo_stats.json, public/   # GENERADOS — no editar a mano
 ## 5. Deuda técnica conocida (backlog)
 
 - [x] `.gitignore` añadido; `resources/_gen/`, `hugo_stats.json`, `.hugo_build.lock` fuera del índice. `static/uploads/resume.txt` (datos personales) ignorado.
-- [ ] `layouts/_partials/hbx/blocks/resume-biography-3/block.html`: la convención `_partials/` y `hbx/blocks/` es de Hugo ≥ 0.146 / HugoBlox nuevo. Con Hugo 0.136.5 + blox-tailwind 0.3.1 probablemente **no se aplica**. Verificar; si no tiene efecto, moverlo a la ruta correcta del tema (`layouts/partials/blox/resume-biography-3/block.html`) o eliminarlo.
+- [x] Override muerto `layouts/_partials/hbx/...` eliminado; override real en `layouts/partials/blox/resume-biography-3.html`.
 - [ ] Dos códigos de verificación de Google (uno en `custom.html`/`hugo.yaml`, otro en `params.yaml`). Dejar solo el vigente.
 - [ ] `LICENSE` (MIT propio) y `LICENSE.md` (MIT del starter de George Cushen): unificar o renombrar el del starter para dejar clara la atribución.
 - [ ] `deploy.sh` duplica el workflow y tiene un remote inválido (`git@github.com:manuelcaipocc.git`). Eliminar o corregir.

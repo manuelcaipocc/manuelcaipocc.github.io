@@ -1,0 +1,6 @@
+{{ if eq .img.MediaType.SubType "svg" }}
+  <img {{ with .class }}class="{{ . }}"{{ end }} src="{{ .img.RelPermalink }}" alt="{{ .name }}" loading="lazy">
+{{ else }}
+  {{ $t := .img.Fit "160x160 webp" }}
+  <img {{ with .class }}class="{{ . }}"{{ end }} src="{{ $t.RelPermalink }}" alt="{{ .name }}" width="{{ $t.Width }}" height="{{ $t.Height }}" loading="lazy">
+{{ end }}

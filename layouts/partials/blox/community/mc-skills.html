@@ -1,0 +1,38 @@
+{{/* Skills + languages, and awards, in MC card style. Data: skills, languages, awards in content/authors/<username>/_index.md */}}
+{{ $block := .wcBlock }}
+{{ $p := (site.GetPage (printf "/authors/%s" ($block.content.username | default "admin"))).Params }}
+
+<div class="mc-container">
+  {{ partial "mc/heading" (dict "title" ($block.content.title | default "Skills") "lead" $block.content.subtitle) }}
+
+  <div class="mc-skill-grid">
+    {{ range $p.skills }}{{ range .items }}
+    <article class="mc-card mc-skill">
+      <h3>{{ with .icon }}<span class="mc-skill-icon">{{ partial "functions/get_icon" (dict "name" . "attributes" "style=\"height:1rem\"") }}</span>{{ end }}{{ .name }}</h3>
+      {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+    </article>
+    {{ end }}{{ end }}
+  </div>
+
+  {{ with $p.languages }}
+  <div class="mc-languages">
+    <span class="mc-eyebrow">Languages</span>
+    <div class="mc-pills">{{ range . }}<span class="mc-pill">{{ .name }}</span>{{ end }}</div>
+  </div>
+  {{ end }}
+
+  {{ with $p.awards }}
+  <div class="mc-awards">
+    <h3 class="mc-col-title">{{ $block.content.awards_title | default "Awards & scholarships" }}</h3>
+    <ul class="mc-award-list">
+      {{ range sort . "date" "desc" }}
+      <li>
+        <span class="mc-award-year">{{ (time .date).Format "2006" }}</span>
+        <span class="mc-award-title">{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}{{ .title }}{{ if .url }}</a>{{ end }}</span>
+        <span class="mc-award-by">{{ .awarder }}</span>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+</div>

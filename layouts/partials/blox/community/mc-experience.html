@@ -1,0 +1,57 @@
+{{/* Experience: Work | Education columns of logo cards with expandable details. Data: content/authors/<username>/_index.md (work, education). */}}
+{{ $block := .wcBlock }}
+{{ $p := (site.GetPage (printf "/authors/%s" ($block.content.username | default "admin"))).Params }}
+
+<div class="mc-container">
+  {{ partial "mc/heading" (dict "title" ($block.content.title | default "Experience") "lead" $block.content.subtitle) }}
+
+  <div class="mc-exp-grid">
+    <div>
+      <h3 class="mc-col-title">Work</h3>
+      {{/* one card per company; roles stacked newest first */}}
+      {{ $work := sort $p.work "date_start" "desc" }}
+      {{ $companies := slice }}
+      {{ range $work }}{{ if not (in $companies .company_name) }}{{ $companies = $companies | append .company_name }}{{ end }}{{ end }}
+      {{ range $companies }}
+        {{ $roles := where $work "company_name" . }}
+        {{ $first := index $roles 0 }}
+        {{ $start := (index (sort $roles "date_start" "asc") 0).date_start }}
+        {{ $end := $first.date_end }}
+        {{ range $roles }}{{ if not .date_end }}{{ $end = "" }}{{ end }}{{ end }}
+      <article class="mc-card mc-exp">
+        {{ partial "mc/logo" (dict "logo" $first.logo "logo_dark" $first.logo_dark "name" $first.company_name) }}
+        <div class="mc-exp-body">
+          <div class="mc-exp-org mc-exp-company">{{ with $first.company_url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}{{ $first.company_name }}{{ if $first.company_url }}</a>{{ end }}</div>
+          {{ if gt (len $roles) 1 }}<div class="mc-exp-date">{{ partial "mc/dates" (dict "start" $start "end" $end) }}</div>{{ end }}
+          <ol class="mc-roles{{ if gt (len $roles) 1 }} is-multi{{ end }}">
+            {{ range $roles }}
+            <li>
+              <div class="mc-exp-date">{{ partial "mc/dates" (dict "start" .date_start "end" .date_end) }}</div>
+              <h4>{{ .position }}</h4>
+              {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+              {{ with .summary }}<details class="mc-details"><summary>Details</summary><div>{{ . | markdownify }}</div></details>{{ end }}
+            </li>
+            {{ end }}
+          </ol>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+
+    <div>
+      <h3 class="mc-col-title">Education</h3>
+      {{ range sort $p.education "date_start" "desc" }}
+      <article class="mc-card mc-exp">
+        {{ partial "mc/logo" (dict "logo" .logo "logo_dark" .logo_dark "name" .institution) }}
+        <div class="mc-exp-body">
+          <div class="mc-exp-date">{{ partial "mc/dates" (dict "start" .date_start "end" .date_end) }}</div>
+          <h4>{{ .area }}</h4>
+          <div class="mc-exp-org">{{ .institution }}</div>
+          {{ with .description }}<p>{{ . | markdownify }}</p>{{ end }}
+          {{ with .summary }}<details class="mc-details"><summary>Details</summary><div>{{ . | markdownify }}</div></details>{{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</div>

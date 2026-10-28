@@ -1,0 +1,51 @@
+{{/* Intro: large avatar + identity left, greeting, lead, cards and CTAs right. Data: content/authors/<username>/_index.md (intro, profiles). */}}
+{{ $block := .wcBlock }}
+{{ $person_page := site.GetPage (printf "/authors/%s" ($block.content.username | default "admin")) }}
+{{ $p := $person_page.Params }}
+{{ $intro := $p.intro | default dict }}
+{{ $avatar := ($person_page.Resources.ByType "image").GetMatch "*avatar*" }}
+
+<div class="mc-container mc-intro">
+  <aside class="mc-intro-aside">
+    {{ with $avatar }}
+      {{ $img := .Fill "720x720 Center webp q85" }}
+      <div class="mc-avatar-ring"><img class="mc-avatar" src="{{ $img.RelPermalink }}" alt="{{ $person_page.Title }}" width="{{ $img.Width }}" height="{{ $img.Height }}"></div>
+    {{ end }}
+    <div class="mc-intro-name">{{ $person_page.Title }}</div>
+    {{ with $p.role }}<div class="mc-intro-role">{{ . }}</div>{{ end }}
+    <div class="mc-intro-orgs">
+      {{ range $p.organizations }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>{{ end }}
+    </div>
+    <ul class="mc-socials">
+      {{ range $p.profiles }}
+        {{ $link := .url }}
+        {{ $ext := in (slice "http" "https") (urls.Parse $link).Scheme }}
+        {{ if not (urls.Parse $link).Scheme }}{{ $link = $link | relLangURL }}{{ end }}
+        <li><a href="{{ $link | safeURL }}" {{ if $ext }}target="_blank" rel="noopener"{{ end }} aria-label="{{ .label | default .icon }}" title="{{ .label | default .icon }}">
+          {{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"height:1.15rem\"") }}
+        </a></li>
+      {{ end }}
+    </ul>
+  </aside>
+
+  <div class="mc-intro-main">
+    <h1 class="mc-hello">{{ $intro.greeting | default "Hello, I'm" }} <span class="mc-gradient-text">{{ $intro.highlight | default $p.first_name }}</span><span class="mc-dot">.</span></h1>
+    {{ with $intro.lead }}<p class="mc-intro-lead">{{ . | markdownify }}</p>{{ end }}
+
+    {{ range $intro.cards }}
+    <div class="mc-card mc-intro-card">
+      <div class="mc-eyebrow">{{ .label }}</div>
+      <div class="mc-card-text">{{ .text | markdownify }}</div>
+    </div>
+    {{ end }}
+
+    {{ with $intro.keywords }}
+    <div class="mc-pills">{{ range . }}<span class="mc-pill">{{ . }}</span>{{ end }}</div>
+    {{ end }}
+
+    <div class="mc-actions">
+      {{ with $block.content.primary_action }}<a class="mc-btn mc-btn-primary" href="{{ .url | relLangURL }}" {{ if strings.HasSuffix .url ".pdf" }}target="_blank" rel="noopener"{{ end }}>{{ .text }}</a>{{ end }}
+      {{ with $block.content.secondary_action }}<a class="mc-link" href="{{ .url | relLangURL }}">{{ .text }} <span aria-hidden="true">›</span></a>{{ end }}
+    </div>
+  </div>
+</div>

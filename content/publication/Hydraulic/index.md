@@ -2,7 +2,11 @@
 title: 'An Edge-Oriented Architecture for State-Based Remaining Useful Life Prediction in Hydraulic Systems'
   
 authors:
+  - Faras Brumand-Poor
   - admin
+  - Jörn Kretschmer
+  - Maximilian Dommermuth
+  - Katharina Schmitz
 
 sitemap:
   disable: true
@@ -31,20 +35,20 @@ abstract: >
   of hydraulic cycles, before the system transitions from nominal to PLC-supported
   abnormal or critical operation. This definition provides an operational prognostic
   target without requiring complete run-to-failure trajectories. Supporting this
-  formulation, an OPC~UA-based acquisition and ETL framework aligns
+  formulation, an OPC UA-based acquisition and ETL framework aligns
   high-frequency hydraulic sensor data, multi-resolution storage, and PLC-based
   event logs into a structured data backbone for the investigated prototype.
 
   The framework is evaluated on a real PLC-controlled electro-hydraulic prototype
-  operated across 15 repeated sessions at 100~ms resolution. Latent operating
+  operated across 15 repeated sessions at 100 ms resolution. Latent operating
   states are inferred using K-Means and Hidden Markov Models and evaluated against
   PLC-based operational reference logs. K-Means achieved an accuracy of 0.737 and
   a binary anomaly F1-score of 0.938, while the HMM achieved an accuracy of 0.749,
   a macro F1-score of 0.635, and a binary anomaly F1-score of 0.933. For RUL
-  estimation, XGBoost achieved a test MAE of 3.916~min and a median prognostic
-  horizon of 34.068~min for the first abnormal transition ($R^2=0.911$), while
+  estimation, XGBoost achieved a test MAE of 3.916 min and a median prognostic
+  horizon of 34.068 min for the first abnormal transition (R² = 0.911), while
   LSTM-Attention achieved the best critical RUL performance with a test MAE of
-  3.467~min, a median prognostic horizon of 39.662~min, and $R^2=0.964$. SHAP, PDP, and
+  3.467 min, a median prognostic horizon of 39.662 min, and R² = 0.964. SHAP, PDP, and
   attention-based analyses indicated that the models relied mainly on
   hydraulically plausible variables, including cylinder velocity, pressure ratios,
   oil flow rate, and cycle-level descriptors, supporting physical consistency

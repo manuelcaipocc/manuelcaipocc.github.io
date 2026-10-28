@@ -1,0 +1,1 @@
+{{ (time .start).Format "Jan 2006" }} – {{ if .end }}{{ (time .end).Format "Jan 2006" }}{{ else }}<span class="mc-present">Present</span>{{ end }}

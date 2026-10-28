@@ -1,0 +1,8 @@
+{{/* Publication link chips: dict "page" "names" (slice of [param, label, icon]) */}}
+<div class="mc-pub-links">
+  {{ range .names }}
+    {{ $url := index $.page.Params (index . 0) }}
+    {{ if $url }}<a class="mc-chip" href="{{ $url }}" target="_blank" rel="noopener">{{ partial "functions/get_icon" (dict "name" (index . 2) "attributes" "style=\"height:0.95em\"") }} {{ index . 1 }}</a>{{ end }}
+  {{ end }}
+  {{ with .page.Params.doi }}<a class="mc-chip" href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI</a>{{ end }}
+</div>

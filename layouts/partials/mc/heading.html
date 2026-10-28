@@ -1,0 +1,10 @@
+{{/* Section heading: dict "title" "lead" "accent" (last word in gradient, optional) "link" (dict text url, optional) */}}
+<header class="mc-heading">
+  <div>
+    <h2 class="mc-title">
+      {{- .title | markdownify -}}{{ with .accent }} <span class="mc-gradient-text">{{ . }}</span>{{ end }}<span class="mc-dot">.</span>
+    </h2>
+    {{ with .lead }}<p class="mc-lead">{{ . | markdownify }}</p>{{ end }}
+  </div>
+  {{ with .link }}<a class="mc-link" href="{{ .url }}" target="_blank" rel="noopener">{{ .text }} <span aria-hidden="true">›</span></a>{{ end }}
+</header>

@@ -1,0 +1,34 @@
+{{/* Interests + Numerical Methods Lab. Data: focus_areas in content/authors/<username>/_index.md; lab in block content. */}}
+{{ $block := .wcBlock }}
+{{ $p := (site.GetPage (printf "/authors/%s" ($block.content.username | default "admin"))).Params }}
+{{ $lab := $block.content.lab | default dict }}
+{{ $lab_ready := and $lab.path (fileExists (path.Join "static" $lab.path "index.html")) }}
+
+<div class="mc-container">
+  {{ partial "mc/heading" (dict "title" ($block.content.title | default "Interests") "accent" $block.content.accent "lead" $block.content.subtitle) }}
+
+  <div class="mc-interests">
+    {{ with $lab.title }}
+    <article class="mc-card mc-lab">
+      <div class="mc-eyebrow">{{ $lab.label | default "Lab" }}</div>
+      <h3>{{ . }}</h3>
+      {{ with $lab.text }}<p>{{ . | markdownify }}</p>{{ end }}
+      {{ with $lab.tags }}<div class="mc-pills">{{ range . }}<span class="mc-pill">{{ . }}</span>{{ end }}</div>{{ end }}
+      {{ if $lab_ready }}
+        <a class="mc-btn mc-btn-primary" href="{{ printf "/%s/" (strings.Trim $lab.path "/") | relLangURL }}">Open the simulator</a>
+      {{ else }}
+        <span class="mc-badge">In development</span>
+      {{ end }}
+    </article>
+    {{ end }}
+
+    {{ range $p.focus_areas }}
+    <article class="mc-card mc-interest">
+      {{ with .icon }}<div class="mc-interest-icon">{{ partial "functions/get_icon" (dict "name" . "attributes" "style=\"height:1.4rem\"") }}</div>{{ end }}
+      <h3>{{ .title }}</h3>
+      <p>{{ .text | markdownify }}</p>
+      {{ with .tags }}<div class="mc-tags">{{ range . }}<span class="mc-tag">{{ . }}</span>{{ end }}</div>{{ end }}
+    </article>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,79 @@
+{{/* Research: featured publications as large cards + full list grouped by year with type filters. Data: content/publication/* */}}
+{{ $block := .wcBlock }}
+{{ $pubs := (where site.RegularPages "Section" "publication").ByDate.Reverse }}
+{{ $featured := where $pubs "Params.featured" true }}
+{{ with $block.content.lead }}
+  {{ with site.GetPage (printf "/publication/%s" .) }}
+    {{ $featured = (slice .) | append (where $featured "Permalink" "!=" .Permalink) }}
+  {{ end }}
+{{ end }}
+{{ $max := $block.content.featured_count | default 3 }}
+
+{{ $type_names := dict
+  "article-journal" "Journal" "paper" "Journal"
+  "thesis" "Thesis"
+  "report" "Report" "technicalReport" "Report"
+  "paper-conference" "Conference"
+  "article" "Preprint" "preprint" "Preprint"
+}}
+{{ $link_names := slice
+  (slice "url_source" "Article" "document-text")
+  (slice "url_pdf" "PDF" "arrow-down-tray")
+  (slice "url_code" "Code" "code-bracket")
+  (slice "url_video" "Video" "play-circle")
+  (slice "url_poster" "Poster" "photo")
+  (slice "url_project" "Project" "globe-alt")
+}}
+
+<div class="mc-container">
+  {{ partial "mc/heading" (dict "title" ($block.content.title | default "Featured research") "lead" $block.content.subtitle) }}
+
+  <div class="mc-featured">
+    {{ range $i, $pub := first $max $featured }}
+      {{ $img := $pub.Resources.GetMatch "featured*" }}
+      <article class="mc-card mc-pub{{ if eq $i 0 }} is-lead{{ end }}">
+        {{ with $img }}
+          {{ $t := .Fill (cond (eq $i 0) "1200x900 Center webp q80" "1200x675 Center webp q80") }}
+          <a class="mc-pub-media" href="{{ $pub.RelPermalink }}"><img src="{{ $t.RelPermalink }}" alt="{{ $pub.Title }}" width="{{ $t.Width }}" height="{{ $t.Height }}" loading="lazy"></a>
+        {{ end }}
+        <div class="mc-pub-body">
+          <div class="mc-eyebrow">{{ with $pub.Params.publication_short }}{{ . | markdownify }} · {{ end }}{{ $pub.Date.Format "2006" }}</div>
+          <h3><a href="{{ $pub.RelPermalink }}">{{ $pub.Title }}</a></h3>
+          <div class="mc-authors">{{ partial "mc/authors" (dict "authors" $pub.Params.authors) }}</div>
+          {{ with $pub.Params.summary }}<p class="mc-pub-summary">{{ . | markdownify }}</p>{{ end }}
+          {{ partial "mc/pub-links.html" (dict "page" $pub "names" $link_names) }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
+
+  <div class="mc-all-pubs" data-mc-pubs>
+    {{ partial "mc/heading" (dict "title" "All publications" "link" $block.content.scholar) }}
+
+    {{ $counts := dict }}
+    {{ range $pubs }}
+      {{ $t := index $type_names (index (.Params.publication_types | default (slice "other")) 0) | default "Other" }}
+      {{ $counts = merge $counts (dict $t (add (index $counts $t | default 0) 1)) }}
+    {{ end }}
+    <div class="mc-segmented" role="tablist" aria-label="Publication type">
+      <button type="button" role="tab" class="mc-seg" data-filter="all" aria-selected="true">All <span>{{ len $pubs }}</span></button>
+      {{ range $t, $n := $counts }}<button type="button" role="tab" class="mc-seg" data-filter="{{ $t }}" aria-selected="false">{{ $t }} <span>{{ $n }}</span></button>{{ end }}
+    </div>
+
+    {{ range $pubs.GroupByDate "2006" }}
+    <div class="mc-pub-year">
+      <div class="mc-pub-year-label">{{ .Key }}</div>
+      <ul class="mc-pub-list">
+        {{ range .Pages }}
+          {{ $t := index $type_names (index (.Params.publication_types | default (slice "other")) 0) | default "Other" }}
+          <li data-type="{{ $t }}">
+            <a class="mc-pub-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <div class="mc-authors">{{ partial "mc/authors" (dict "authors" .Params.authors) }}</div>
+            <div class="mc-pub-list-meta"><span class="mc-tag">{{ $t }}</span>{{ partial "mc/pub-links.html" (dict "page" . "names" $link_names) }}</div>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+</div>

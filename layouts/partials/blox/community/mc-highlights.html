@@ -1,0 +1,51 @@
+{{/* Highlights: year selector + horizontal card rail per year, with a full-list toggle. Data: block content.items (date 'YYYY-MM-DD', year_only, title, text, milestone, url). */}}
+{{ $block := .wcBlock }}
+{{ $items := sort ($block.content.items | default slice) "date" "desc" }}
+{{ $years := slice }}
+{{ range $items }}{{ $y := substr (string .date) 0 4 }}{{ if not (in $years $y) }}{{ $years = $years | append $y }}{{ end }}{{ end }}
+
+<div class="mc-container" data-mc-highlights>
+  {{ partial "mc/heading" (dict "title" ($block.content.title | default "Highlights") "lead" $block.content.subtitle) }}
+
+  <div class="mc-segmented" role="tablist" aria-label="Year">
+    {{ range $i, $y := $years }}
+      <button type="button" role="tab" class="mc-seg" data-year="{{ $y }}" aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}">{{ $y }}</button>
+    {{ end }}
+  </div>
+
+  <div class="mc-years">
+    {{ range $i, $y := $years }}
+      {{ $group := slice }}
+      {{ range $items }}{{ if eq (substr (string .date) 0 4) $y }}{{ $group = $group | append . }}{{ end }}{{ end }}
+      {{ $milestones := 0 }}
+      {{ range $group }}{{ if .milestone }}{{ $milestones = add $milestones 1 }}{{ end }}{{ end }}
+      <div class="mc-year" data-year="{{ $y }}" {{ if ne $i 0 }}hidden{{ end }}>
+        <div class="mc-year-label">
+          <div class="mc-year-number">{{ $y }}</div>
+          <div class="mc-year-meta">{{ len $group }} {{ cond (eq (len $group) 1) "update" "updates" }}{{ if $milestones }}<br>{{ $milestones }} {{ cond (eq $milestones 1) "milestone" "milestones" }}{{ end }}</div>
+        </div>
+        <div class="mc-rail" tabindex="0">
+          {{ range $group }}
+          <article class="mc-card mc-news{{ if .milestone }} is-milestone{{ end }}">
+            <div class="mc-news-meta">
+              <span>{{ (time .date).Format (cond (.year_only | default false) "2006" "January 2006") }}</span>
+              {{ if .milestone }}<span class="mc-badge">Milestone</span>{{ end }}
+            </div>
+            <h3>{{ .title | markdownify }}</h3>
+            {{ with .text }}<p>{{ . | markdownify }}</p>{{ end }}
+            {{ with .url }}<a class="mc-link" href="{{ . }}" target="_blank" rel="noopener">Read more <span aria-hidden="true">›</span></a>{{ end }}
+          </article>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+  <div class="mc-rail-controls">
+    <button type="button" class="mc-list-toggle mc-btn mc-btn-outline" aria-pressed="false">View all {{ len $items }} as a list</button>
+    <div class="mc-arrows">
+      <button type="button" class="mc-arrow" data-dir="-1" aria-label="Previous">‹</button>
+      <button type="button" class="mc-arrow" data-dir="1" aria-label="Next">›</button>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,9 @@ hugo_stats.json
 # Private CV source (contains personal contact data)
 /static/uploads/resume.txt
 
+# Local design references / screenshots
+/.tmp/
+
 # OS / editor
 .DS_Store
 Thumbs.db
