@@ -64,4 +64,30 @@
       });
     });
   });
+
+  // Interests: load visualization scripts only when their card approaches the viewport
+  var vizHosts = document.querySelectorAll('[data-mc-viz][data-src]:not([data-src=""])');
+  if (vizHosts.length) {
+    var loaded = {};
+    var loadViz = function (el) {
+      var src = el.dataset.src;
+      if (loaded[src]) return;
+      loaded[src] = true;
+      var s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      if (el.dataset.integrity) s.integrity = el.dataset.integrity;
+      document.body.appendChild(s);
+    };
+    if ('IntersectionObserver' in window) {
+      var vizObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { vizObserver.unobserve(e.target); loadViz(e.target); }
+        });
+      }, { rootMargin: '300px 0px' });
+      vizHosts.forEach(function (el) { vizObserver.observe(el); });
+    } else {
+      vizHosts.forEach(loadViz);
+    }
+  }
 })();

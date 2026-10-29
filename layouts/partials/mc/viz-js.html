@@ -1,0 +1,4 @@
+{{/* Returns assets/js/viz/<kind>.js minified + fingerprinted, or "" if missing. Context: kind string. */}}
+{{ $js := "" }}
+{{ with resources.Get (printf "js/viz/%s.js" .) }}{{ $js = . | minify | fingerprint }}{{ end }}
+{{ return $js }}

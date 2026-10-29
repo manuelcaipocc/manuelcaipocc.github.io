@@ -62,7 +62,9 @@ layouts/
 assets/css/custom.css    # fondo animado propio + design system "mc-" (variables claro/oscuro, cards, pills)
 assets/media/companies/  # logos de empresas/universidades (campo `logo:` en work/education de authors/admin)
 # Datos de la home: content/_index.md (orden de bloques + items de Highlights) y content/authors/admin (intro, focus_areas, work, education, skills, awards)
-# Lab: el bloque mc-interests muestra "Open the simulator" cuando existe static/lab/index.html
+# Lab (mc-interests): `lab.kind` -> embebe assets/js/viz/<kind>.js (attention = self-attention, portado de zasa4/attention-visualizer)
+# Visualizaciones de Interests: `visuals` en el bloque mc-interests (content/_index.md); kind -> assets/js/viz/<kind>.js (helper partials/mc/viz-js.html)
+#   (optimization = Canvas 2D GD/Adam; fluid = WebGL adaptado de PavelDoGreat, MIT, cabecera /*! */ conservada). mc.js las carga con IntersectionObserver.
 
 # Local: Hugo extended 0.136.5 portable en %LOCALAPPDATA%\hugo-0.136.5 + Go (winget). `hugo server -D`
 # El CSS de Tailwind del tema es precompilado (dist/wc.min.css): utilidades nuevas en templates pueden no existir -> usar custom.css.

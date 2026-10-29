@@ -1,23 +1,49 @@
-{{/* Interests + Numerical Methods Lab. Data: focus_areas in content/authors/<username>/_index.md; lab in block content. */}}
+{{/* Interests + Lab. Data: focus_areas in content/authors/<username>/_index.md; lab and visuals in block content. */}}
 {{ $block := .wcBlock }}
 {{ $p := (site.GetPage (printf "/authors/%s" ($block.content.username | default "admin"))).Params }}
 {{ $lab := $block.content.lab | default dict }}
-{{ $lab_ready := and $lab.path (fileExists (path.Join "static" $lab.path "index.html")) }}
 
 <div class="mc-container">
   {{ partial "mc/heading" (dict "title" ($block.content.title | default "Interests") "accent" $block.content.accent "lead" $block.content.subtitle) }}
 
+  {{ with $block.content.visuals }}
+  <div class="mc-viz-grid">
+    {{ range . }}
+    {{ $js := partial "mc/viz-js" .kind }}
+    <article class="mc-card mc-viz">
+      <div class="mc-viz-stage mc-viz-{{ .kind }}" data-mc-viz="{{ .kind }}" {{ with $js }}data-src="{{ .RelPermalink }}" data-integrity="{{ .Data.Integrity }}"{{ end }}>
+        {{ if eq .kind "optimization" }}
+        <canvas tabindex="0" role="button" aria-label="{{ .title }}: optimizer trajectories on a contour map. Press to restart from new initial points."></canvas>
+        <div class="mc-viz-switch" role="group" aria-label="Optimizer">
+          <button type="button" data-method="gd" aria-pressed="true">Gradient descent</button>
+          <button type="button" data-method="adam" aria-pressed="false">Adam</button>
+        </div>
+        {{ else }}
+        <canvas role="img" aria-label="{{ .title }}: interactive fluid simulation"></canvas>
+        {{ end }}
+        <span class="mc-viz-caption" aria-hidden="true">{{ .caption }}</span>
+      </div>
+      <div class="mc-viz-body">
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+  {{ end }}
+
   <div class="mc-interests">
     {{ with $lab.title }}
     <article class="mc-card mc-lab">
-      <div class="mc-eyebrow">{{ $lab.label | default "Lab" }}</div>
-      <h3>{{ . }}</h3>
-      {{ with $lab.text }}<p>{{ . | markdownify }}</p>{{ end }}
-      {{ with $lab.tags }}<div class="mc-pills">{{ range . }}<span class="mc-pill">{{ . }}</span>{{ end }}</div>{{ end }}
-      {{ if $lab_ready }}
-        <a class="mc-btn mc-btn-primary" href="{{ printf "/%s/" (strings.Trim $lab.path "/") | relLangURL }}">Open the simulator</a>
-      {{ else }}
-        <span class="mc-badge">In development</span>
+      <div class="mc-lab-text">
+        <div class="mc-eyebrow">{{ $lab.label | default "Lab" }}</div>
+        <h3>{{ . }}</h3>
+        {{ with $lab.text }}<p>{{ . | markdownify }}</p>{{ end }}
+        {{ with $lab.tags }}<div class="mc-pills">{{ range . }}<span class="mc-pill">{{ . }}</span>{{ end }}</div>{{ end }}
+      </div>
+      {{ with $lab.kind }}
+      {{ $js := partial "mc/viz-js" . }}
+      <div class="mc-viz-stage mc-lab-stage mc-viz-{{ . }}" data-mc-viz="{{ . }}" {{ with $js }}data-src="{{ .RelPermalink }}" data-integrity="{{ .Data.Integrity }}"{{ end }}></div>
       {{ end }}
     </article>
     {{ end }}

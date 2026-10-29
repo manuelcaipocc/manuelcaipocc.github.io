@@ -1,0 +1,318 @@
+# Implementation Brief — Interactive Scientific Visualizations
+
+## Objetivo
+
+Implementar dos animaciones científicas en la sección **Interests / Intereses** de mi portafolio personal.
+
+La intención es mostrar visualmente mis intereses en:
+
+- Numerical Optimization & Machine Learning
+- Computational Mathematics & Fluid Dynamics
+
+Quiero transmitir una identidad de investigación científica, matemática e inteligencia artificial mediante animaciones elegantes, minimalistas y técnicamente fundamentadas.
+
+**No construir una plataforma educativa ni incorporar el sitio completo de Gradient Lab.** Solo quiero algunas visualizaciones atractivas, interactivas y ligeras, integradas en el diseño actual.
+
+## 1. Diseño e integración
+
+Ubicación: sección existente `Interests` de la página web.
+
+Crear dos tarjetas interactivas:
+
+**Tarjeta A — Numerical Optimization**
+
+Mostrar un espacio matemático con curvas de nivel y partículas desplazándose hacia mínimos locales mediante algoritmos de optimización.
+
+**Tarjeta B — Computational Fluid Dynamics**
+
+Mostrar un fluido animado con vórtices suaves, campos de velocidad y movimiento interactivo basado en WebGL.
+
+Diseño visual:
+
+- Fondo: negro profundo `#070D14`.
+- Color principal: turquesa `#38D9E6`.
+- Color secundario: azul `#4285F4`.
+- Partículas y trazos blancos/cian con opacidad variable.
+- Líneas finas, detalles luminosos muy discretos.
+- Sin grandes paneles de configuración.
+- Sin textos extensos ni gráficos adicionales.
+- Bordes redondeados y transiciones suaves.
+- Mantener la tipografía, espaciados y navegación del sitio existente.
+
+Desktop: dos visualizaciones en columnas paralelas.
+
+Mobile: una visualización debajo de la otra.
+
+Cada tarjeta debe tener una animación principal y una descripción de una línea.
+
+---
+
+## 2. Visualización A — Numerical Optimization
+
+### Referencias de código
+
+**Referencia principal: Gradient Lab**
+
+Web: https://gradientlab.ai/
+
+Repositorio: https://github.com/NeoVand/GradientDescent
+
+Utilizarlo como referencia para:
+
+- Generación de superficies matemáticas.
+- Curvas de nivel.
+- Trayectorias de optimización.
+- Gradient Descent, Momentum y Adam.
+- Animaciones de convergencia.
+
+
+### Implementación solicitada
+
+Crear una visualización 2D basada en HTML Canvas o SVG.
+
+Mostrar una función objetivo matemática mediante 8–15 curvas de nivel semitransparentes.
+
+Simular entre 6 y 12 puntos que parten de posiciones diferentes y siguen trayectorias calculadas mediante un algoritmo real de optimización.
+
+Colorear las trayectorias en distintas tonalidades de azul y turquesa. Los puntos deben dejar un pequeño rastro luminoso.
+
+Empezar con una función cuadrática rotada y, opcionalmente, añadir Rosenbrock o Himmelblau para trayectorias más interesantes.
+
+Ejemplo de algoritmo en TypeScript:
+
+```typescript
+type Point = { x: number; y: number };
+
+// Función objetivo:
+// f(x,y) = (x+y)^2 + 0.2(x-y)^2
+
+function gradient(p: Point): Point {
+  return {
+    x: 2 * (p.x + p.y) + 0.4 * (p.x - p.y),
+    y: 2 * (p.x + p.y) - 0.4 * (p.x - p.y),
+  };
+}
+
+function optimize(
+  start: Point,
+  lr = 0.08,
+  steps = 70
+): Point[] {
+  let p = { ...start };
+  const path = [{ ...p }];
+
+  for (let i = 0; i < steps; i++) {
+    const g = gradient(p);
+    p = {
+      x: p.x - lr * g.x,
+      y: p.y - lr * g.y,
+    };
+    path.push({ ...p });
+  }
+
+  return path;
+}
+```
+
+Generar las trayectorias una vez y reproducirlas mediante interpolación temporal, sin recalcular el algoritmo en cada fotograma.
+
+Crear una animación de aproximadamente 12–18 segundos que vuelva a comenzar suavemente.
+
+### Interacción mínima
+
+- Al pasar el cursor, enfatizar la trayectoria más cercana.
+- Al hacer clic, reiniciar la simulación desde nuevas posiciones iniciales.
+- Opcional: pequeño selector `Gradient Descent | Adam`.
+- No mostrar sliders complejos.
+
+La prioridad es la belleza de la representación matemática, no una herramienta de entrenamiento.
+
+---
+
+## 3. Visualización B — Computational Fluid Dynamics
+
+### Repositorio principal
+
+**WebGL Fluid Simulation — Pavel Dobryakov**
+
+GitHub:
+https://github.com/PavelDoGreat/WebGL-Fluid-Simulation
+
+Demo:
+https://paveldogreat.github.io/WebGL-Fluid-Simulation/
+
+Licencia: MIT.
+
+Examinar especialmente el archivo `script.js` y los shaders para adaptar únicamente las funciones necesarias.
+
+### Implementación solicitada
+
+Integrar una simulación de fluidos WebGL dentro de la segunda tarjeta.
+
+Características:
+
+- Fondo oscuro.
+- Fluido azul/turquesa.
+- Movimiento continuo y lento.
+- Pequeños vórtices y deformaciones.
+- Respuesta al mouse o al movimiento táctil.
+- Reducir la intensidad de los colores para conservar la estética minimalista.
+
+Evitar el aspecto de explosiones de pintura con muchos colores.
+
+Preferir uno o dos vórtices que se deforman lentamente, con líneas de flujo ligeramente visibles si resulta sencillo implementarlas.
+
+La simulación debe mantener un movimiento natural y no parecer un video repetido.
+
+No es necesario resolver el problema completo de Navier–Stokes en 3D. Basta con una simulación gráfica de fluidos adecuada para WebGL.
+
+### Interacciones mínimas
+
+- Mouse: perturbación suave del fluido.
+- Touch: desplazamiento de los vórtices.
+- Sin panel de parámetros ni menús complejos.
+- Reiniciar automáticamente si la simulación pierde estabilidad.
+
+---
+
+## 4. Arquitectura técnica
+
+Antes de modificar el código, analizar el framework y la estructura actual de la web.
+
+No reemplazar el stack existente ni agregar un nuevo framework completo.
+
+Estructura conceptual sugerida:
+
+```text
+components/
+  interests/
+    ScientificInterests
+    OptimizationCanvas
+    FluidCanvas
+
+lib/
+  visualizations/
+    optimization
+    fluid
+
+styles/
+  scientific-visualizations
+```
+
+Ajustar nombres y extensiones a las convenciones reales del proyecto.
+
+Tecnologías recomendadas:
+
+| Componente | Tecnología |
+|---|---|
+| Optimización | TypeScript + Canvas 2D |
+| Fluidos | JavaScript/TypeScript + WebGL |
+| Animación | requestAnimationFrame |
+| Renderizado 3D opcional | Three.js |
+| Interfaz | Framework existente |
+
+No instalar PyTorch, TensorFlow, modelos ML, servidores de inferencia ni dependencias científicas pesadas.
+
+### Renderizado eficiente
+
+- Objetivo inicial: 30 FPS en ambos componentes.
+- Limitar el device pixel ratio a 1.5 cuando sea conveniente.
+- Reducir la resolución interna de la simulación de fluidos en móviles.
+- Iniciar los componentes gráficos cuando entren en el viewport mediante `IntersectionObserver`.
+- Pausar las animaciones cuando estén fuera de la pantalla o la pestaña esté oculta.
+- Respetar `prefers-reduced-motion`.
+- Liberar los recursos WebGL y cancelar los ciclos de animación al desmontar el componente.
+- Mostrar una imagen estática como fallback cuando WebGL no esté disponible.
+- No bloquear la carga inicial de la página.
+
+Evitar renderizar dos simulaciones pesadas simultáneamente cuando no sean visibles.
+
+---
+
+## 5. Pasos de implementación
+
+### Paso 1 — Analizar la web actual
+
+Localizar la sección `Interests`.
+
+Identificar el framework, componentes, estilos, idiomas y sistema de navegación.
+
+Conservar la estructura actual.
+
+### Paso 2 — Crear las dos tarjetas
+
+Crear el diseño responsive con las dos áreas de visualización y un título descriptivo por tarjeta.
+
+Mantener el resto de la sección existente.
+
+### Paso 3 — Implementar Numerical Optimization
+
+Crear un componente de Canvas independiente.
+
+Calcular una función matemática y representar sus curvas de nivel.
+
+Generar múltiples trayectorias con Gradient Descent.
+
+Animar progresivamente el recorrido de las partículas.
+
+Verificar que las trayectorias corresponden a actualizaciones reales del algoritmo, no a movimientos aleatorios arbitrarios.
+
+### Paso 4 — Implementar WebGL Fluid
+
+Revisar el repositorio de Pavel Dobryakov.
+
+Adaptar la simulación al tamaño de la tarjeta y conservar los avisos de licencia correspondientes.
+
+Configurar la paleta turquesa/azul, el movimiento automático y la interacción mediante puntero.
+
+### Paso 5 — Integrar y optimizar
+
+Incorporar ambos componentes en la sección `Interests`.
+
+Evitar conflictos con scroll, navegación y otros componentes.
+
+Implementar lazy loading y pausas cuando no sean visibles.
+
+### Paso 6 — Validar
+
+Verificar:
+
+- Ambas animaciones funcionan en desktop.
+- La versión móvil no presenta desbordamientos.
+- Las animaciones no afectan perceptiblemente el scroll.
+- No aparecen errores de JavaScript o WebGL.
+- La carga inicial no depende de servicios externos.
+- Los títulos están preparados para los idiomas existentes.
+- El modo de movimiento reducido muestra una alternativa estática.
+- Los controles existentes son accesibles por teclado.
+- Se han preservado los avisos de licencia necesarios.
+
+---
+
+## 6. Resultado esperado
+
+Una sección de Intereses con dos experiencias científicas breves:
+
+**Numerical Optimization**
+
+"Exploring how numerical algorithms converge toward optimal solutions."
+
+Visualización: trayectorias luminosas avanzando sobre curvas de nivel hasta converger.
+
+**Computational Fluid Dynamics**
+
+"Exploring complex systems through numerical simulation and computation."
+
+Visualización: fluidos azul turquesa interactivos sobre un fondo negro.
+
+Las animaciones deben parecer parte de la identidad visual del sitio, no aplicaciones externas incrustadas.
+
+## 7. Alcance inicial
+
+Implementar únicamente estas dos visualizaciones, priorizando acabado visual, integración y rendimiento.
+
+No desarrollar dashboards, tutoriales, cursos, configuradores avanzados ni simulaciones de gran escala.
+
+Crear componentes reutilizables y mantener la implementación sencilla. Si existe una solución más ligera en el stack actual, preferirla.
+
+Al finalizar, entregar una breve descripción de los componentes creados, dependencias agregadas, atribuciones de terceros y verificaciones realizadas.

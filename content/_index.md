@@ -111,12 +111,21 @@ sections:
       username: admin
       title: Interests
       subtitle: What I explore beyond the day-to-day, and the tools I build to understand it.
+      # kind -> assets/js/viz/<kind>.js
+      visuals:
+        - kind: optimization
+          title: Numerical Optimization
+          text: Exploring how numerical algorithms converge toward optimal solutions.
+        - kind: fluid
+          title: Computational Fluid Dynamics
+          text: Exploring complex systems through numerical simulation and computation.
+          caption: Navier-Stokes · WebGL
       lab:
         label: Lab
-        title: Numerical Methods Simulator
-        text: An interactive simulator of numerical methods, from optimizers on loss landscapes to classic solvers, with precomputed trajectories so it runs instantly in the browser.
-        tags: [Gradient descent, Optimizers, Numerical solvers]
-        path: lab
+        title: Attention Simulator
+        text: Scaled dot-product self-attention computed live in the browser. Pick a head and hover a token to trace where it looks.
+        tags: [Self-attention, Transformers, Causal mask]
+        kind: attention
 
   - block: mc-skills
     id: skills
