@@ -466,5 +466,3 @@ Design of ML systems for anomaly detection, degradation modeling, and remaining 
 Development of data pipelines, telemetry systems, and deployable machine learning architectures for cyber-physical systems.
 
 </div>
-
-<small><a href="https://manuelcaipocc.goatcounter.com/" target="_blank" style="color: rgba(0, 0, 0, 0.1); text-decoration: none;">Analytics</a></small>

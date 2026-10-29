@@ -1,4 +1,20 @@
 (function () {
+  // Hidden shortcut: 3 clicks/taps on the avatar open the (login-protected) GoatCounter dashboard
+  var avatar = document.querySelector('.mc-avatar');
+  if (avatar) {
+    var taps = 0, timer;
+    avatar.style.touchAction = 'manipulation';
+    avatar.addEventListener('click', function () {
+      clearTimeout(timer);
+      if (++taps === 3) {
+        taps = 0;
+        window.open('https://manuelcaipocc.goatcounter.com/', '_blank', 'noopener');
+        return;
+      }
+      timer = setTimeout(function () { taps = 0; }, 600);
+    });
+  }
+
   // Highlights: year tabs, rail arrows and list toggle
   document.querySelectorAll('[data-mc-highlights]').forEach(function (root) {
     var tabs = root.querySelectorAll('.mc-segmented .mc-seg');

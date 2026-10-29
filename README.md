@@ -57,6 +57,14 @@ Deploy: a normal `git push` to `main` -> GitHub Actions builds and publishes to 
 | Interactive visuals (optimization, fluid, attention) | `assets/js/viz/<kind>.js` |
 | Company / university logos | `assets/media/companies/` |
 
+### Visitor stats
+
+Visits are counted with [GoatCounter](https://www.goatcounter.com/) (script in `layouts/partials/hooks/head-end/github-button.html`).
+
+- **Open the dashboard:** click or tap the profile photo on the home page **3 times** quickly (desktop and mobile). Code: top of `assets/js/mc.js`.
+- The dashboard is login-protected, so the shortcut reveals nothing to visitors. Keep public stats disabled in GoatCounter *Settings*.
+- Exclude your own visits: open `https://manuelcaipocc.github.io/#toggle-goatcounter` once per browser.
+
 ### Interests visuals: where the code lives
 
 | Visual (home › Interests) | Code | Text / on-off | Based on | License |
